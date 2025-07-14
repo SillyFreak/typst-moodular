@@ -1,8 +1,10 @@
 #import "template.typ" as template: *
-#import "/src/lib.typ" as PACKAGE
+#import "/src/lib.typ" as moodular
 
 #show: manual(
   package-meta: toml("/typst.toml").package,
+  title: [Moodular],
+  subtitle: [Create Moodle activity content using Typst's HTML export],
   date: none,
   // date: datetime(year: ..., month: ..., day: ...),
 
@@ -11,17 +13,17 @@
   //   A PACKAGE for something
   // ],
 
-  scope: (PACKAGE: PACKAGE),
+  scope: (moodular: moodular),
 )
 
 = Introduction
 
-This is a PACKAGE for something.
+This package allows you to use Typst's HTML export to generate content for your Moodle courses, but preview them faithfully in Tinymist or the webapp.
 
 = Module reference
 
 #module(
   read("/src/lib.typ"),
-  name: "PACKAGE",
+  name: "moodular",
   label-prefix: none,
 )
