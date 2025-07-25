@@ -1,25 +1,31 @@
+#import "@preview/bullseye:0.1.0" as bullseye: html
+
 #import "c4l.typ"
 #import "generico.typ"
-#import "util.typ"
 #import "htmlx.typ"
 
-#let setup() = util.target-conditional.with(
-  paged: doc => {
-    set page(width: 14cm, height: auto, margin: 1cm)
+#let setup() = body => {
+  // paged: setup page, font, link styling
+  show: bullseye.show-target(paged: rest => {
+    set page(height: auto, margin: 1cm)
     set text(font: "Noto Sans")
+    show link: underline
+    show link: set text(blue.darken(40%))
+    rest
+  })
 
-    show quote.where(block: true): it => {
-      show: block.with(
-        width: 100%,
-        stroke: (left: 5pt+rgb("#adb5bd")),
-        inset: (left: 1em, y: 4pt),
-      )
-      set text(rgb("#495057"))
+  show quote.where(block: true): bullseye.show-target(paged: it => {
+    show: block.with(
+      width: 100%,
+      stroke: (left: 5pt+rgb("#adb5bd")),
+      inset: (left: 1em, y: 4pt),
+    )
+    set text(rgb("#495057"))
+    it
+  })
 
-      it
-    }
-
-    show raw.where(block: true): it => {
+  show raw.where(block: true): bullseye.show-target(
+    paged: it => {
       show: block.with(
         width: 100%,
         fill: rgb("#f5f2f0"),
@@ -30,24 +36,19 @@
         fill: rgb("#fafafa"),
         inset: 0.5em,
       )
-
       it
-    }
-
-    doc
-  },
-  default: doc => {
-    show raw.where(block: true): it => {
+    },
+    html: it => {
       show: htmlx.elem.with("pre", class: "language-" + it.lang)
       show: htmlx.elem.with("code")
       it.text
-    }
+    },
+  )
 
-    doc
-  },
-)
+  body
+}
 
-#let frame = util.target-conditional.with(
-  paged: body => body,
-  html: body => html.frame(body),
+#let frame(body) = context bullseye.on-target(
+  paged: body,
+  html: html.frame(body),
 )

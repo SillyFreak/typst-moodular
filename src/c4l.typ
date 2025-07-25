@@ -1,9 +1,10 @@
-#import "util.typ"
+#import "@preview/bullseye:0.1.0"
+
 #import "htmlx.typ"
 #import "c4l-util.typ"
 
-#let key-concept = util.target-conditional.with(
-  paged: body => {
+#let key-concept(body) = context bullseye.on-target(
+  paged: {
     show: c4l-util.block.with(
       margin: (y: 36pt),
       width: 100%,
@@ -14,7 +15,7 @@
 
     body
   },
-  html: body => {
+  html: {
     show: htmlx.div.with(
       class: "c4lv-keyconcept",
       aria-label: "Key concept",
@@ -23,8 +24,8 @@
   },
 )
 
-#let quote = util.target-conditional.with(
-  paged: body => {
+#let quote(body) = context bullseye.on-target(
+  paged: {
     show: c4l-util.block.with(
       margin: (x: 10%, y: 36pt),
       width: 100%,
@@ -41,7 +42,7 @@
     text(font: "Liberation Serif", style: "italic", body)
     qm[”]
   },
-  html: body => {
+  html: {
     show: htmlx.div.with(
       class: "c4lv-quote",
       aria-label: "Quote",
@@ -55,8 +56,8 @@
   },
 )
 
-#let example = util.target-conditional.with(
-  paged: (title, body) => {
+#let example(title, body) = context bullseye.on-target(
+  paged: {
     show: c4l-util.block.with(
       margin: (x: 11%, y: 36pt),
       shadow: true,
@@ -76,7 +77,7 @@
 
     body
   },
-  html: (title, body) => {
+  html: {
     show: htmlx.div.with(
       class: "c4lv-example",
       aria-label: "Example",
@@ -87,8 +88,8 @@
   },
 )
 
-#let tip = util.target-conditional.with(
-  paged: body => {
+#let tip(body) = context bullseye.on-target(
+  paged: {
     show: c4l-util.block.with(
       margin: (top: 24pt, bottom: 8pt, x: 0.5%),
       width: 100%,
@@ -100,7 +101,7 @@
 
     body
   },
-  html: body => {
+  html: {
     show: htmlx.div.with(
       class: "c4lv-tip",
       aria-label: "Tip",
@@ -110,8 +111,8 @@
   },
 )
 
-#let do-dont = util.target-conditional.with(
-  paged: (do, dont) => {
+#let do-dont(do, dont) = context bullseye.on-target(
+  paged: {
     let icon(fill, icon) = {
       import "@preview/fontawesome:0.5.0": *
 
@@ -147,7 +148,7 @@
       dont
     }
   },
-  html: (do, dont) => {
+  html: {
     show: htmlx.div.with(
       class: "c4lv-dodontcards",
       aria-label: "Do/don't cards",
@@ -165,9 +166,9 @@
   },
 )
 
-#let figure(..args) = util.target-conditional(
-  paged: () => std.figure(..args),
-  html: () => {
+#let figure(..args) = context bullseye.on-target(
+  paged: std.figure(..args),
+  html: {
     assert.eq(args.pos().len(), 1)
     let ((body,), args) = (args.pos(), args.named())
 
@@ -181,8 +182,8 @@
   },
 )
 
-#let reminder = util.target-conditional.with(
-  paged: body => {
+#let reminder(body) = context bullseye.on-target(
+  paged: {
     show: c4l-util.block.with(
       margin: (top: 24pt, bottom: 8pt, x: 0.5%),
       width: 100%,
@@ -194,7 +195,7 @@
 
     body
   },
-  html: body => {
+  html: {
     show: htmlx.div.with(
       class: "c4lv-reminder",
       aria-label: "Reminder",
@@ -204,8 +205,8 @@
   },
 )
 
-#let reading-context = util.target-conditional.with(
-  paged: body => {
+#let reading-context(body) = context bullseye.on-target(
+  paged: {
     show: c4l-util.block.with(
       margin: (x: 11%, y: 36pt),
       shadow: true,
@@ -215,7 +216,7 @@
 
     body
   },
-  html: body => {
+  html: {
     show: htmlx.div.with(
       class: "c4lv-readingcontext",
       aria-label: "Reading context",
@@ -226,8 +227,8 @@
   },
 )
 
-#let attention = util.target-conditional.with(
-  paged: body => {
+#let attention(body) = context bullseye.on-target(
+  paged: {
     show: c4l-util.block.with(
       margin: (top: 24pt, bottom: 8pt, x: 0.5%),
       width: 100%,
@@ -239,7 +240,7 @@
 
     body
   },
-  html: body => {
+  html: {
     show: htmlx.div.with(
       class: "c4lv-attention",
       aria-label: "Attention",
@@ -249,13 +250,13 @@
   },
 )
 
-#let procedural-context = util.target-conditional.with(
-  paged: body => {
+#let procedural-context(body) = context bullseye.on-target(
+  paged: {
     set text(rgb("#3a56af"), style: "italic")
 
     body
   },
-  html: body => {
+  html: {
     show: htmlx.elem.with(
       "p",
       class: "c4lv-proceduralcontext",
@@ -266,8 +267,8 @@
   },
 )
 
-#let learning-outcomes = util.target-conditional.with(
-  paged: (title, body) => {
+#let learning-outcomes(title, body) = context bullseye.on-target(
+  paged: {
     show: c4l-util.block.with(
       margin: (top: 24pt, bottom: 8pt, x: 0.5%),
       width: 100%,
@@ -296,7 +297,7 @@
 
     body
   },
-  html: (title, body) => {
+  html: {
     show: htmlx.div.with(
       class: "c4lv-learningoutcomes",
       aria-label: "Learning outcomes",
@@ -313,8 +314,8 @@
   },
 )
 
-#let expected-feedback = util.target-conditional.with(
-  paged: body => {
+#let expected-feedback(body) = context bullseye.on-target(
+  paged: {
     show: c4l-util.block.with(
       margin: (top: 24pt, bottom: 8pt, x: 11%),
       shadow: true,
@@ -327,7 +328,7 @@
 
     body
   },
-  html: body => {
+  html: {
     show: htmlx.div.with(
       class: "c4lv-expectedfeedback",
       aria-label: "Expected feedback",
@@ -338,8 +339,8 @@
   },
 )
 
-#let card = util.target-conditional.with(
-  paged: body => {
+#let card(body) = context bullseye.on-target(
+  paged: {
     show: c4l-util.block.with(
       margin: (x: 10%, y: 36pt),
       width: 100%,
@@ -350,7 +351,7 @@
 
     body
   },
-  html: body => {
+  html: {
     show: htmlx.div.with(
       class: "c4lv-allpurposecard",
       aria-label: "All-purpose card",

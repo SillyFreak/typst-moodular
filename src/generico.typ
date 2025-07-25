@@ -1,11 +1,11 @@
-#import "util.typ"
+#import "@preview/bullseye:0.1.0"
 
 #let generico(placeholder, block: false, ..fields) = {
   assert.eq(fields.pos().len(), 0)
   let fields = fields.named()
 
-  util.target-conditional(
-    paged: () => {
+  context bullseye.on-target(
+    paged: {
       let container = if block { std.block } else { box }
       show: container.with(
         fill: gray.lighten(50%),
@@ -16,7 +16,7 @@
       set text(gray.darken(30%), style: "italic")
       placeholder
     },
-    html: () => {
+    html: {
       show: if block { par } else { it => it }
       "{GENERICO:"
       fields.pairs()
