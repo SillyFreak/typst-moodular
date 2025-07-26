@@ -5,7 +5,7 @@
 }
 
 #let shadow(body, ..args) = {
-  import "@preview/umbra:0.1.0": shadow-path
+  import "libs.typ": umbra.shadow-path
 
   assert.eq(args.pos().len(), 0)
 
@@ -88,7 +88,7 @@
 }
 
 #let icon-flag(fill, icon) = {
-  import "@preview/fontawesome:0.5.0": *
+  import "libs.typ": fontawesome.fa-icon
 
   show: std.block.with(
     inset: (x: 7pt, y: 4pt),
