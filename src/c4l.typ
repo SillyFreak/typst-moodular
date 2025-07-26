@@ -1,4 +1,4 @@
-#import "@preview/bullseye:0.1.0"
+#import "libs.typ": bullseye
 
 #import "htmlx.typ"
 #import "c4l-util.typ"
@@ -114,7 +114,7 @@
 #let do-dont(do, dont) = context bullseye.on-target(
   paged: {
     let icon(fill, icon) = {
-      import "@preview/fontawesome:0.5.0": *
+      import "libs.typ": fontawesome.fa-icon
 
       show: block.with(
         inset: (x: 12pt, y: 8pt),

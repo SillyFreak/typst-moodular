@@ -1,4 +1,4 @@
-#import "@preview/bullseye:0.1.0": html
+#import "libs.typ": bullseye.html
 
 #let elem(..args) = {
   let (args, attrs) = (args.pos(), args.named())

@@ -1,4 +1,4 @@
-#import "@preview/bullseye:0.1.0" as bullseye: html
+#import "libs.typ": bullseye, bullseye.html
 
 #import "c4l.typ"
 #import "generico.typ"
