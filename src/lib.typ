@@ -45,6 +45,15 @@
     },
   )
 
+  show image: bullseye.show-target(html: it => {
+    htmlx.elem(
+      "img",
+      src: "@@PLUGINFILE@@/" + it.source,
+      ..if it.alt != none { (alt: it.alt) },
+      class: "img-fluid"
+    )
+  })
+
   body
 }
 
