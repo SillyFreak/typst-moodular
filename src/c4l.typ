@@ -3,6 +3,11 @@
 #import "htmlx.typ"
 #import "c4l-util.typ"
 
+#let spacer = context bullseye.on-target(
+  paged: v(12pt),
+  html: htmlx.elem("p", class: "c4l-spacer")
+)
+
 = Contextual components
 
 /// See https://componentsforlearning.org/components/key-concept/ for details and examples rendered in HTML.
@@ -20,6 +25,8 @@
 #let key-concept(
   /// -> content
   body,
+  /// whether the component should take up the full text width
+  full-width: false,
 ) = context bullseye.on-target(
   paged: {
     show: c4l-util.block.with(
@@ -33,10 +40,12 @@
     body
   },
   html: {
+    spacer
     show: htmlx.div.with(
-      class: "c4lv-keyconcept",
+      class: "c4lv-keyconcept" + if full-width { " c4l-full-width-variant" },
       aria-label: "Key concept",
     )
+
     body
   },
 )
@@ -55,6 +64,8 @@
 #let tip(
   /// -> content
   body,
+  /// whether the component should take up the full text width
+  full-width: false,
 ) = context bullseye.on-target(
   paged: {
     show: c4l-util.block.with(
@@ -69,8 +80,9 @@
     body
   },
   html: {
+    spacer
     show: htmlx.div.with(
-      class: "c4lv-tip",
+      class: "c4lv-tip" + if full-width { " c4l-full-width-variant" },
       aria-label: "Tip",
     )
 
@@ -92,6 +104,8 @@
 #let reminder(
   /// -> content
   body,
+  /// whether the component should take up the full text width
+  full-width: false,
 ) = context bullseye.on-target(
   paged: {
     show: c4l-util.block.with(
@@ -106,8 +120,9 @@
     body
   },
   html: {
+    spacer
     show: htmlx.div.with(
-      class: "c4lv-reminder",
+      class: "c4lv-reminder" + if full-width { " c4l-full-width-variant" },
       aria-label: "Reminder",
     )
 
@@ -129,6 +144,9 @@
 #let quote(
   /// -> content
   body,
+  /// whether the component should take up the full text width
+  full-width: false,
+  // TODO quote
 ) = context bullseye.on-target(
   paged: {
     show: c4l-util.block.with(
@@ -148,8 +166,9 @@
     qm[”]
   },
   html: {
+    spacer
     show: htmlx.div.with(
-      class: "c4lv-quote",
+      class: "c4lv-quote" + if full-width { " c4l-full-width-variant" },
       aria-label: "Quote",
     )
     show: htmlx.div.with(class: "c4l-quote-body")
@@ -176,6 +195,8 @@
   do,
   /// -> content
   dont,
+  /// whether the component should take up the full text width
+  full-width: false,
 ) = context bullseye.on-target(
   paged: {
     let icon(fill, icon) = {
@@ -214,8 +235,9 @@
     }
   },
   html: {
+    spacer
     show: htmlx.div.with(
-      class: "c4lv-dodontcards",
+      class: "c4lv-dodontcards" + if full-width { " c4l-full-width-variant" },
       aria-label: "Do/don't cards",
     )
     htmlx.div(
@@ -244,6 +266,10 @@
 #let reading-context(
   /// -> content
   body,
+  /// whether the component should take up the full text width
+  full-width: false,
+  // TODO quote
+  // TODO comfort-reading
 ) = context bullseye.on-target(
   paged: {
     show: c4l-util.block.with(
@@ -256,13 +282,16 @@
     body
   },
   html: {
+    spacer
     show: htmlx.div.with(
-      class: "c4lv-readingcontext",
+      class: "c4lv-readingcontext" + if full-width { " c4l-full-width-variant" },
       aria-label: "Reading context",
     )
 
     parbreak()
     body
+
+    // TODO quote
   },
 )
 
@@ -281,6 +310,8 @@
   title,
   /// -> content
   body,
+  /// whether the component should take up the full text width
+  full-width: false,
 ) = context bullseye.on-target(
   paged: {
     show: c4l-util.block.with(
@@ -303,8 +334,9 @@
     body
   },
   html: {
+    spacer
     show: htmlx.div.with(
-      class: "c4lv-example",
+      class: "c4lv-example" + if full-width { " c4l-full-width-variant" },
       aria-label: "Example",
     )
     htmlx.elem("h1", title)
@@ -324,15 +356,20 @@
 /// ```)
 ///
 /// -> content
-#let figure(..args) = context bullseye.on-target(
+#let figure(
+  ..args,
+  /// whether the component should take up the full text width
+  full-width: false,
+) = context bullseye.on-target(
   paged: std.figure(..args),
   html: {
     assert.eq(args.pos().len(), 1)
     let ((body,), args) = (args.pos(), args.named())
 
+    spacer
     show: htmlx.elem.with(
       "figure",
-      class: "c4lv-figure",
+      class: "c4lv-figure" + if full-width { " c4l-full-width-variant" },
       aria-label: "Figure",
     )
 
@@ -359,6 +396,8 @@
 #let attention(
   /// -> content
   body,
+  /// whether the component should take up the full text width
+  full-width: false,
 ) = context bullseye.on-target(
   paged: {
     show: c4l-util.block.with(
@@ -373,8 +412,9 @@
     body
   },
   html: {
+    spacer
     show: htmlx.div.with(
-      class: "c4lv-attention",
+      class: "c4lv-attention" + if full-width { " c4l-full-width-variant" },
       aria-label: "Attention",
     )
 
@@ -399,6 +439,8 @@
 #let procedural-context(
   /// -> content
   body,
+  /// whether the component should take up the full text width
+  full-width: false,
 ) = context bullseye.on-target(
   paged: {
     set text(rgb("#3a56af"), style: "italic")
@@ -406,9 +448,10 @@
     body
   },
   html: {
+    spacer
     show: htmlx.elem.with(
       "p",
-      class: "c4lv-proceduralcontext",
+      class: "c4lv-proceduralcontext" + if full-width { " c4l-full-width-variant" },
       aria-label: "Procedural context",
     )
 
@@ -432,6 +475,9 @@
   title,
   /// -> content
   body,
+  /// whether the component should take up the full text width
+  full-width: false,
+  // TODO ordered-list
 ) = context bullseye.on-target(
   paged: {
     show: c4l-util.block.with(
@@ -463,8 +509,9 @@
     body
   },
   html: {
+    spacer
     show: htmlx.div.with(
-      class: "c4lv-learningoutcomes",
+      class: "c4lv-learningoutcomes" + if full-width { " c4l-full-width-variant" },
       aria-label: "Learning outcomes",
     )
 
@@ -497,6 +544,8 @@
 #let expected-feedback(
   /// -> content
   body,
+  /// whether the component should take up the full text width
+  full-width: false,
 ) = context bullseye.on-target(
   paged: {
     show: c4l-util.block.with(
@@ -512,8 +561,9 @@
     body
   },
   html: {
+    spacer
     show: htmlx.div.with(
-      class: "c4lv-expectedfeedback",
+      class: "c4lv-expectedfeedback" + if full-width { " c4l-full-width-variant" },
       aria-label: "Expected feedback",
     )
 
@@ -538,6 +588,8 @@
 #let card(
   /// -> content
   body,
+  /// whether the component should take up the full text width
+  full-width: false,
 ) = context bullseye.on-target(
   paged: {
     show: c4l-util.block.with(
@@ -551,8 +603,9 @@
     body
   },
   html: {
+    spacer
     show: htmlx.div.with(
-      class: "c4lv-allpurposecard",
+      class: "c4lv-allpurposecard" + if full-width { " c4l-full-width-variant" },
       aria-label: "All-purpose card",
     )
 
