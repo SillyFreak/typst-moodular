@@ -171,12 +171,15 @@
       class: "c4lv-quote" + if full-width { " c4l-full-width-variant" },
       aria-label: "Quote",
     )
-    show: htmlx.div.with(class: "c4l-quote-body")
-    htmlx.div(class: "c4l-quote-line", " ")
-    show: htmlx.div.with(class: "c4l-quote-text")
+    {
+      show: htmlx.div.with(class: "c4l-quote-body")
+      htmlx.div(class: "c4l-quote-line", " ")
+      show: htmlx.div.with(class: "c4l-quote-text")
 
-    parbreak()
-    body
+      parbreak()
+      body
+    }
+    // TODO quote
   },
 )
 
@@ -374,6 +377,11 @@
     )
 
     body
+    if "caption" in args {
+      show: htmlx.elem.with("figcaption")
+      show: htmlx.elem.with("em", class: "c4l-figure-footer")
+      args.caption
+    }
   },
 )
 
