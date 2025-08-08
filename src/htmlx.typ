@@ -6,3 +6,5 @@
 }
 
 #let div = elem.with("div")
+
+#let img(src, ..args) = elem("img", src: src, ..args)
