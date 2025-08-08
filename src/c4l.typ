@@ -3,6 +3,8 @@
 #import "htmlx.typ"
 #import "c4l-util.typ"
 
+= Contextual components
+
 /// See https://componentsforlearning.org/components/key-concept/ for details and examples rendered in HTML.
 ///
 /// This is how the component looks in PDF preview:
@@ -35,6 +37,80 @@
       class: "c4lv-keyconcept",
       aria-label: "Key concept",
     )
+    body
+  },
+)
+
+/// See https://componentsforlearning.org/components/tip/ for details and examples rendered in HTML.
+///
+/// This is how the component looks in PDF preview:
+///
+/// #example(dir: ttb, scale-preview: 100%, ```typc
+/// >>> import moodular.c4l
+/// >>> show: pad.with(top: -20pt)
+/// c4l.tip[#lorem(20)]
+/// ```)
+///
+/// -> content
+#let tip(
+  /// -> content
+  body,
+) = context bullseye.on-target(
+  paged: {
+    show: c4l-util.block.with(
+      margin: (top: 24pt, bottom: 8pt, x: 0.5%),
+      width: 100%,
+      padding: (top: 24pt, right: 48pt, bottom: 30pt, left: 36pt),
+      fill: rgb("#fbeffa"),
+      left-bar: rgb("#b00ca9"),
+      top-right-float: (dx: 3pt, dy: 6pt, body: c4l-util.icon-flag(rgb("#b00ca9"), "lightbulb")),
+    )
+
+    body
+  },
+  html: {
+    show: htmlx.div.with(
+      class: "c4lv-tip",
+      aria-label: "Tip",
+    )
+
+    body
+  },
+)
+
+/// See https://componentsforlearning.org/components/reminder/ for details and examples rendered in HTML.
+///
+/// This is how the component looks in PDF preview:
+///
+/// #example(dir: ttb, scale-preview: 100%, ```typc
+/// >>> import moodular.c4l
+/// >>> show: pad.with(top: -20pt)
+/// c4l.reminder[#lorem(20)]
+/// ```)
+///
+/// -> content
+#let reminder(
+  /// -> content
+  body,
+) = context bullseye.on-target(
+  paged: {
+    show: c4l-util.block.with(
+      margin: (top: 24pt, bottom: 8pt, x: 0.5%),
+      width: 100%,
+      padding: (top: 24pt, right: 48pt, bottom: 30pt, left: 36pt),
+      fill: rgb("#eff8fd"),
+      left-bar: rgb("#16b9ff"),
+      top-right-float: (dx: 3pt, dy: 6pt, body: c4l-util.icon-flag(rgb("#16b9ff"), "thumbtack")),
+    )
+
+    body
+  },
+  html: {
+    show: htmlx.div.with(
+      class: "c4lv-reminder",
+      aria-label: "Reminder",
+    )
+
     body
   },
 )
@@ -81,90 +157,6 @@
     show: htmlx.div.with(class: "c4l-quote-text")
 
     parbreak()
-    body
-  },
-)
-
-/// See https://componentsforlearning.org/components/example/ for details and examples rendered in HTML.
-///
-/// This is how the component looks in PDF preview:
-///
-/// #example(dir: ttb, scale-preview: 100%, ```typc
-/// >>> import moodular.c4l
-/// c4l.example[Title][#lorem(20)]
-/// ```)
-///
-/// -> content
-#let example(
-  /// -> content
-  title,
-  /// -> content
-  body,
-) = context bullseye.on-target(
-  paged: {
-    show: c4l-util.block.with(
-      margin: (x: 11%, y: 36pt),
-      shadow: true,
-      width: 100%,
-      padding: (y: 36pt, x: 48pt),
-    )
-
-    {
-      set text(0.9em, rgb("#3171e3"), weight: "bold")
-      show: block.with(
-        stroke: (bottom: 2pt+rgb("#3171e3")),
-        inset: (bottom: 5pt),
-      )
-
-      upper(title)
-    }
-
-    body
-  },
-  html: {
-    show: htmlx.div.with(
-      class: "c4lv-example",
-      aria-label: "Example",
-    )
-    htmlx.elem("h1", title)
-
-    body
-  },
-)
-
-/// See https://componentsforlearning.org/components/tip/ for details and examples rendered in HTML.
-///
-/// This is how the component looks in PDF preview:
-///
-/// #example(dir: ttb, scale-preview: 100%, ```typc
-/// >>> import moodular.c4l
-/// >>> show: pad.with(top: -20pt)
-/// c4l.tip[#lorem(20)]
-/// ```)
-///
-/// -> content
-#let tip(
-  /// -> content
-  body,
-) = context bullseye.on-target(
-  paged: {
-    show: c4l-util.block.with(
-      margin: (top: 24pt, bottom: 8pt, x: 0.5%),
-      width: 100%,
-      padding: (top: 24pt, right: 48pt, bottom: 30pt, left: 36pt),
-      fill: rgb("#fbeffa"),
-      left-bar: rgb("#b00ca9"),
-      top-right-float: (dx: 3pt, dy: 6pt, body: c4l-util.icon-flag(rgb("#b00ca9"), "lightbulb")),
-    )
-
-    body
-  },
-  html: {
-    show: htmlx.div.with(
-      class: "c4lv-tip",
-      aria-label: "Tip",
-    )
-
     body
   },
 )
@@ -239,70 +231,6 @@
   },
 )
 
-/// See https://componentsforlearning.org/components/figure/ for details and examples rendered in HTML.
-///
-/// This is how the component looks in PDF preview:
-///
-/// #example(dir: ttb, scale-preview: 100%, ```typc
-/// >>> import moodular.c4l
-/// >>> show: pad.with(y: 10pt)
-/// c4l.figure[#lorem(20)]
-/// ```)
-///
-/// -> content
-#let figure(..args) = context bullseye.on-target(
-  paged: std.figure(..args),
-  html: {
-    assert.eq(args.pos().len(), 1)
-    let ((body,), args) = (args.pos(), args.named())
-
-    show: htmlx.elem.with(
-      "figure",
-      class: "c4lv-figure",
-      aria-label: "Figure",
-    )
-
-    body
-  },
-)
-
-/// See https://componentsforlearning.org/components/reminder/ for details and examples rendered in HTML.
-///
-/// This is how the component looks in PDF preview:
-///
-/// #example(dir: ttb, scale-preview: 100%, ```typc
-/// >>> import moodular.c4l
-/// >>> show: pad.with(top: -20pt)
-/// c4l.reminder[#lorem(20)]
-/// ```)
-///
-/// -> content
-#let reminder(
-  /// -> content
-  body,
-) = context bullseye.on-target(
-  paged: {
-    show: c4l-util.block.with(
-      margin: (top: 24pt, bottom: 8pt, x: 0.5%),
-      width: 100%,
-      padding: (top: 24pt, right: 48pt, bottom: 30pt, left: 36pt),
-      fill: rgb("#eff8fd"),
-      left-bar: rgb("#16b9ff"),
-      top-right-float: (dx: 3pt, dy: 6pt, body: c4l-util.icon-flag(rgb("#16b9ff"), "thumbtack")),
-    )
-
-    body
-  },
-  html: {
-    show: htmlx.div.with(
-      class: "c4lv-reminder",
-      aria-label: "Reminder",
-    )
-
-    body
-  },
-)
-
 /// See https://componentsforlearning.org/components/reading-context/ for details and examples rendered in HTML.
 ///
 /// This is how the component looks in PDF preview:
@@ -337,6 +265,85 @@
     body
   },
 )
+
+/// See https://componentsforlearning.org/components/example/ for details and examples rendered in HTML.
+///
+/// This is how the component looks in PDF preview:
+///
+/// #example(dir: ttb, scale-preview: 100%, ```typc
+/// >>> import moodular.c4l
+/// c4l.example[Title][#lorem(20)]
+/// ```)
+///
+/// -> content
+#let example(
+  /// -> content
+  title,
+  /// -> content
+  body,
+) = context bullseye.on-target(
+  paged: {
+    show: c4l-util.block.with(
+      margin: (x: 11%, y: 36pt),
+      shadow: true,
+      width: 100%,
+      padding: (y: 36pt, x: 48pt),
+    )
+
+    {
+      set text(0.9em, rgb("#3171e3"), weight: "bold")
+      show: block.with(
+        stroke: (bottom: 2pt+rgb("#3171e3")),
+        inset: (bottom: 5pt),
+      )
+
+      upper(title)
+    }
+
+    body
+  },
+  html: {
+    show: htmlx.div.with(
+      class: "c4lv-example",
+      aria-label: "Example",
+    )
+    htmlx.elem("h1", title)
+
+    body
+  },
+)
+
+/// See https://componentsforlearning.org/components/figure/ for details and examples rendered in HTML.
+///
+/// This is how the component looks in PDF preview:
+///
+/// #example(dir: ttb, scale-preview: 100%, ```typc
+/// >>> import moodular.c4l
+/// >>> show: pad.with(y: 10pt)
+/// c4l.figure[#lorem(20)]
+/// ```)
+///
+/// -> content
+#let figure(..args) = context bullseye.on-target(
+  paged: std.figure(..args),
+  html: {
+    assert.eq(args.pos().len(), 1)
+    let ((body,), args) = (args.pos(), args.named())
+
+    show: htmlx.elem.with(
+      "figure",
+      class: "c4lv-figure",
+      aria-label: "Figure",
+    )
+
+    body
+  },
+)
+
+// TODO Tag
+// TODO Inline tag
+
+= Procedural components
 
 /// See https://componentsforlearning.org/components/attention/ for details and examples rendered in HTML.
 ///
@@ -374,6 +381,9 @@
     body
   },
 )
+
+// TODO Estimated Time
+// TODO Due Date
 
 /// See https://componentsforlearning.org/components/procedural-context/ for details and examples rendered in HTML.
 ///
@@ -469,6 +479,10 @@
   },
 )
 
+= Evaluative components
+
+// TODO Grading Value
+
 /// See https://componentsforlearning.org/components/expected-feedback/ for details and examples rendered in HTML.
 ///
 /// This is how the component looks in PDF preview:
@@ -507,6 +521,8 @@
     body
   },
 )
+
+= Helper components
 
 /// See https://componentsforlearning.org/components/all-purpose-card/ for details and examples rendered in HTML.
 ///
