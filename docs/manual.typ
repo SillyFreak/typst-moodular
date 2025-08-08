@@ -32,3 +32,15 @@ This package is somewhat opinionated, as it contains features tailored towards s
   name: "moodular",
   label-prefix: none,
 )
+
+#module(
+  read("/src/c4l.typ"),
+  name: "c4l",
+  label-prefix: "c4l",
+)
+
+#module(
+  read("/src/htmlx.typ"),
+  name: "htmlx",
+  label-prefix: "htmlx",
+)

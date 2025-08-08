@@ -3,7 +3,22 @@
 #import "htmlx.typ"
 #import "c4l-util.typ"
 
-#let key-concept(body) = context bullseye.on-target(
+/// See https://componentsforlearning.org/components/key-concept/ for details and examples rendered in HTML.
+///
+/// This is how the component looks in PDF preview:
+///
+/// #example(dir: ttb, scale-preview: 100%, ```typc
+/// >>> import moodular.c4l
+/// >>> set text(font: "Noto Sans")
+/// >>> show: pad.with(y: -30pt)
+/// c4l.key-concept[#lorem(20)]
+/// ```)
+///
+/// -> content
+#let key-concept(
+  /// -> content
+  body,
+) = context bullseye.on-target(
   paged: {
     show: c4l-util.block.with(
       margin: (y: 36pt),
@@ -24,7 +39,21 @@
   },
 )
 
-#let quote(body) = context bullseye.on-target(
+/// See https://componentsforlearning.org/components/quote/ for details and examples rendered in HTML.
+///
+/// This is how the component looks in PDF preview:
+///
+/// #example(dir: ttb, scale-preview: 100%, ```typc
+/// >>> import moodular.c4l
+/// >>> show: pad.with(y: -30pt)
+/// c4l.quote[#lorem(20)]
+/// ```)
+///
+/// -> content
+#let quote(
+  /// -> content
+  body,
+) = context bullseye.on-target(
   paged: {
     show: c4l-util.block.with(
       margin: (x: 10%, y: 36pt),
@@ -56,7 +85,22 @@
   },
 )
 
-#let example(title, body) = context bullseye.on-target(
+/// See https://componentsforlearning.org/components/example/ for details and examples rendered in HTML.
+///
+/// This is how the component looks in PDF preview:
+///
+/// #example(dir: ttb, scale-preview: 100%, ```typc
+/// >>> import moodular.c4l
+/// c4l.example[Title][#lorem(20)]
+/// ```)
+///
+/// -> content
+#let example(
+  /// -> content
+  title,
+  /// -> content
+  body,
+) = context bullseye.on-target(
   paged: {
     show: c4l-util.block.with(
       margin: (x: 11%, y: 36pt),
@@ -88,7 +132,21 @@
   },
 )
 
-#let tip(body) = context bullseye.on-target(
+/// See https://componentsforlearning.org/components/tip/ for details and examples rendered in HTML.
+///
+/// This is how the component looks in PDF preview:
+///
+/// #example(dir: ttb, scale-preview: 100%, ```typc
+/// >>> import moodular.c4l
+/// >>> show: pad.with(top: -20pt)
+/// c4l.tip[#lorem(20)]
+/// ```)
+///
+/// -> content
+#let tip(
+  /// -> content
+  body,
+) = context bullseye.on-target(
   paged: {
     show: c4l-util.block.with(
       margin: (top: 24pt, bottom: 8pt, x: 0.5%),
@@ -111,7 +169,22 @@
   },
 )
 
-#let do-dont(do, dont) = context bullseye.on-target(
+/// See https://componentsforlearning.org/components/do-dont-cards/ for details and examples rendered in HTML.
+///
+/// This is how the component looks in PDF preview:
+///
+/// #example(dir: ttb, scale-preview: 100%, ```typc
+/// >>> import moodular.c4l
+/// c4l.do-dont[#lorem(20)][#lorem(20)]
+/// ```)
+///
+/// -> content
+#let do-dont(
+  /// -> content
+  do,
+  /// -> content
+  dont,
+) = context bullseye.on-target(
   paged: {
     let icon(fill, icon) = {
       import "libs.typ": fontawesome.fa-icon
@@ -166,6 +239,17 @@
   },
 )
 
+/// See https://componentsforlearning.org/components/figure/ for details and examples rendered in HTML.
+///
+/// This is how the component looks in PDF preview:
+///
+/// #example(dir: ttb, scale-preview: 100%, ```typc
+/// >>> import moodular.c4l
+/// >>> show: pad.with(y: 10pt)
+/// c4l.figure[#lorem(20)]
+/// ```)
+///
+/// -> content
 #let figure(..args) = context bullseye.on-target(
   paged: std.figure(..args),
   html: {
@@ -182,7 +266,21 @@
   },
 )
 
-#let reminder(body) = context bullseye.on-target(
+/// See https://componentsforlearning.org/components/reminder/ for details and examples rendered in HTML.
+///
+/// This is how the component looks in PDF preview:
+///
+/// #example(dir: ttb, scale-preview: 100%, ```typc
+/// >>> import moodular.c4l
+/// >>> show: pad.with(top: -20pt)
+/// c4l.reminder[#lorem(20)]
+/// ```)
+///
+/// -> content
+#let reminder(
+  /// -> content
+  body,
+) = context bullseye.on-target(
   paged: {
     show: c4l-util.block.with(
       margin: (top: 24pt, bottom: 8pt, x: 0.5%),
@@ -205,7 +303,20 @@
   },
 )
 
-#let reading-context(body) = context bullseye.on-target(
+/// See https://componentsforlearning.org/components/reading-context/ for details and examples rendered in HTML.
+///
+/// This is how the component looks in PDF preview:
+///
+/// #example(dir: ttb, scale-preview: 100%, ```typc
+/// >>> import moodular.c4l
+/// c4l.reading-context[#lorem(20)]
+/// ```)
+///
+/// -> content
+#let reading-context(
+  /// -> content
+  body,
+) = context bullseye.on-target(
   paged: {
     show: c4l-util.block.with(
       margin: (x: 11%, y: 36pt),
@@ -227,7 +338,21 @@
   },
 )
 
-#let attention(body) = context bullseye.on-target(
+/// See https://componentsforlearning.org/components/attention/ for details and examples rendered in HTML.
+///
+/// This is how the component looks in PDF preview:
+///
+/// #example(dir: ttb, scale-preview: 100%, ```typc
+/// >>> import moodular.c4l
+/// >>> show: pad.with(top: -20pt)
+/// c4l.attention[#lorem(20)]
+/// ```)
+///
+/// -> content
+#let attention(
+  /// -> content
+  body,
+) = context bullseye.on-target(
   paged: {
     show: c4l-util.block.with(
       margin: (top: 24pt, bottom: 8pt, x: 0.5%),
@@ -250,7 +375,21 @@
   },
 )
 
-#let procedural-context(body) = context bullseye.on-target(
+/// See https://componentsforlearning.org/components/procedural-context/ for details and examples rendered in HTML.
+///
+/// This is how the component looks in PDF preview:
+///
+/// #example(dir: ttb, scale-preview: 100%, ```typc
+/// >>> import moodular.c4l
+/// >>> show: pad.with(y: 10pt)
+/// c4l.procedural-context[#lorem(20)]
+/// ```)
+///
+/// -> content
+#let procedural-context(
+  /// -> content
+  body,
+) = context bullseye.on-target(
   paged: {
     set text(rgb("#3a56af"), style: "italic")
 
@@ -267,7 +406,23 @@
   },
 )
 
-#let learning-outcomes(title, body) = context bullseye.on-target(
+/// See https://componentsforlearning.org/components/learning-outcomes/ for details and examples rendered in HTML.
+///
+/// This is how the component looks in PDF preview:
+///
+/// #example(dir: ttb, scale-preview: 100%, ```typc
+/// >>> import moodular.c4l
+/// >>> show: pad.with(top: -20pt)
+/// c4l.learning-outcomes[Title][#lorem(20)]
+/// ```)
+///
+/// -> content
+#let learning-outcomes(
+  /// -> content
+  title,
+  /// -> content
+  body,
+) = context bullseye.on-target(
   paged: {
     show: c4l-util.block.with(
       margin: (top: 24pt, bottom: 8pt, x: 0.5%),
@@ -314,7 +469,21 @@
   },
 )
 
-#let expected-feedback(body) = context bullseye.on-target(
+/// See https://componentsforlearning.org/components/expected-feedback/ for details and examples rendered in HTML.
+///
+/// This is how the component looks in PDF preview:
+///
+/// #example(dir: ttb, scale-preview: 100%, ```typc
+/// >>> import moodular.c4l
+/// >>> show: pad.with(top: 10pt, bottom: 20pt)
+/// c4l.expected-feedback[#lorem(20)]
+/// ```)
+///
+/// -> content
+#let expected-feedback(
+  /// -> content
+  body,
+) = context bullseye.on-target(
   paged: {
     show: c4l-util.block.with(
       margin: (top: 24pt, bottom: 8pt, x: 11%),
@@ -339,7 +508,21 @@
   },
 )
 
-#let card(body) = context bullseye.on-target(
+/// See https://componentsforlearning.org/components/all-purpose-card/ for details and examples rendered in HTML.
+///
+/// This is how the component looks in PDF preview:
+///
+/// #example(dir: ttb, scale-preview: 100%, ```typc
+/// >>> import moodular.c4l
+/// >>> show: pad.with(y: -30pt)
+/// c4l.card[#lorem(20)]
+/// ```)
+///
+/// -> content
+#let card(
+  /// -> content
+  body,
+) = context bullseye.on-target(
   paged: {
     show: c4l-util.block.with(
       margin: (x: 10%, y: 36pt),
