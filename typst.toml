@@ -8,12 +8,12 @@ authors = [
   "Clemens Koza <https://github.com/SillyFreak/>"
 ]
 license = "GPL-3.0-or-later"
-description = "my package"
+description = "Use Typst's HTML export to generate content for your Moodle courses"
 # homepage = ""
 repository = "https://github.com/SillyFreak/typst-moodular"
-keywords = []
-categories = []
-disciplines = []
+keywords = ["moodle", "html"]
+categories = ["components", "integration"]
+disciplines = ["education"]
 # compiler = ""
 exclude = [
   ".github",
