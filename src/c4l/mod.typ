@@ -499,7 +499,6 @@
   body,
   /// whether the component should take up the full text width
   full-width: false,
-  // TODO ordered-list
 ) = context bullseye.on-target(
   paged: {
     show: paged.container.with(
@@ -540,11 +539,34 @@
     body
   },
   html: {
+    let ordered-list = {
+      let sequence = [].func()
+      // the body is content (not e.g. a string) and either
+      type(body) == content and (
+        // an enumerated list
+        body.func() == enum or (
+          // or a sequence
+          body.func() == sequence and
+          // containing an enum or enum item
+          body.children.any(it => type(it) == content and it.func() in (enum, enum.item))
+        )
+      )
+    }
+
     show: htmlx.container.with(
       "learningoutcomes",
       "Learning outcomes",
       full-width: full-width,
+      ordered-list: ordered-list,
     )
+
+    let c4l-list(it) = {
+      show: htmlx.elem.with("ul", class: "c4l-learningoutcomes-list")
+
+      for elem in it.children {
+        htmlx.elem("li", elem.body)
+      }
+    }
 
     htmlx.elem(
       "h6",
@@ -552,7 +574,9 @@
       title,
     )
 
-    // TODO set <ul class="c4l-learningoutcomes-list"
+    show list: c4l-list
+    show enum: c4l-list
+
     body
   },
 )
