@@ -1,12 +1,7 @@
 #import "/src/libs.typ": bullseye, fontawesome.fa-icon
 
-#import "/src/htmlx.typ"
+#import "htmlx.typ"
 #import "utils.typ"
-
-#let spacer = context bullseye.on-target(
-  paged: v(12pt),
-  html: htmlx.elem("p", class: "c4l-spacer")
-)
 
 = Contextual components
 
@@ -38,10 +33,10 @@
     body
   },
   html: {
-    spacer
-    show: htmlx.div.with(
-      class: "c4lv-keyconcept" + if full-width { " c4l-full-width-variant" },
-      aria-label: "Key concept",
+    show: htmlx.container.with(
+      "keyconcept",
+      "Key concept",
+      full-width: full-width,
     )
 
     body
@@ -77,10 +72,10 @@
     body
   },
   html: {
-    spacer
-    show: htmlx.div.with(
-      class: "c4lv-tip" + if full-width { " c4l-full-width-variant" },
-      aria-label: "Tip",
+    show: htmlx.container.with(
+      "tip",
+      "Tip",
+      full-width: full-width,
     )
 
     body
@@ -116,10 +111,10 @@
     body
   },
   html: {
-    spacer
-    show: htmlx.div.with(
-      class: "c4lv-reminder" + if full-width { " c4l-full-width-variant" },
-      aria-label: "Reminder",
+    show: htmlx.container.with(
+      "reminder",
+      "Reminder",
+      full-width: full-width,
     )
 
     body
@@ -161,10 +156,10 @@
     qm[”]
   },
   html: {
-    spacer
-    show: htmlx.div.with(
-      class: "c4lv-quote" + if full-width { " c4l-full-width-variant" },
-      aria-label: "Quote",
+    show: htmlx.container.with(
+      "quote",
+      "Quote",
+      full-width: full-width,
     )
     {
       show: htmlx.div.with(class: "c4l-quote-body")
@@ -231,10 +226,10 @@
     }
   },
   html: {
-    spacer
-    show: htmlx.div.with(
-      class: "c4lv-dodontcards" + if full-width { " c4l-full-width-variant" },
-      aria-label: "Do/don't cards",
+    show: htmlx.container.with(
+      "dodontcards",
+      "Do/don't cards",
+      full-width: full-width,
     )
     htmlx.div(
       class: "c4l-dodontcards-do",
@@ -278,10 +273,10 @@
     body
   },
   html: {
-    spacer
-    show: htmlx.div.with(
-      class: "c4lv-readingcontext" + if full-width { " c4l-full-width-variant" },
-      aria-label: "Reading context",
+    show: htmlx.container.with(
+      "readingcontext",
+      "Key Reading context",
+      full-width: full-width,
     )
 
     parbreak()
@@ -330,10 +325,10 @@
     body
   },
   html: {
-    spacer
-    show: htmlx.div.with(
-      class: "c4lv-example" + if full-width { " c4l-full-width-variant" },
-      aria-label: "Example",
+    show: htmlx.container.with(
+      "example",
+      "Example",
+      full-width: full-width,
     )
     htmlx.elem("h1", title)
 
@@ -361,11 +356,11 @@
     assert.eq(args.pos().len(), 1)
     let ((body,), args) = (args.pos(), args.named())
 
-    spacer
-    show: htmlx.elem.with(
+    show: htmlx.container.with(
+      element: "figure",
       "figure",
-      class: "c4lv-figure" + if full-width { " c4l-full-width-variant" },
-      aria-label: "Figure",
+      "Figure",
+      full-width: full-width,
     )
 
     body
@@ -411,10 +406,10 @@
     body
   },
   html: {
-    spacer
-    show: htmlx.div.with(
-      class: "c4lv-attention" + if full-width { " c4l-full-width-variant" },
-      aria-label: "Attention",
+    show: htmlx.container.with(
+      "attention",
+      "Attention",
+      full-width: full-width,
     )
 
     body
@@ -446,11 +441,11 @@
     body
   },
   html: {
-    spacer
-    show: htmlx.elem.with(
-      "p",
-      class: "c4lv-proceduralcontext" + if full-width { " c4l-full-width-variant" },
-      aria-label: "Procedural context",
+    show: htmlx.container.with(
+      element: "p",
+      "proceduralcontext",
+      "Procedural context",
+      full-width: full-width,
     )
 
     body
@@ -506,10 +501,10 @@
     body
   },
   html: {
-    spacer
-    show: htmlx.div.with(
-      class: "c4lv-learningoutcomes" + if full-width { " c4l-full-width-variant" },
-      aria-label: "Learning outcomes",
+    show: htmlx.container.with(
+      "learningoutcomes",
+      "Learning outcomes",
+      full-width: full-width,
     )
 
     htmlx.elem(
@@ -557,10 +552,10 @@
     body
   },
   html: {
-    spacer
-    show: htmlx.div.with(
-      class: "c4lv-expectedfeedback" + if full-width { " c4l-full-width-variant" },
-      aria-label: "Expected feedback",
+    show: htmlx.container.with(
+      "expectedfeedback",
+      "Expected feedback",
+      full-width: full-width,
     )
 
     parbreak()
@@ -598,10 +593,10 @@
     body
   },
   html: {
-    spacer
-    show: htmlx.div.with(
-      class: "c4lv-allpurposecard" + if full-width { " c4l-full-width-variant" },
-      aria-label: "All-purpose card",
+    show: htmlx.container.with(
+      "allpurposecard",
+      "All-purpose card",
+      full-width: full-width,
     )
 
     parbreak()
