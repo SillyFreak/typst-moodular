@@ -1,7 +1,7 @@
-#import "libs.typ": bullseye
+#import "/src/libs.typ": bullseye, fontawesome.fa-icon
 
-#import "htmlx.typ"
-#import "c4l-util.typ"
+#import "/src/htmlx.typ"
+#import "utils.typ"
 
 #let spacer = context bullseye.on-target(
   paged: v(12pt),
@@ -29,7 +29,7 @@
   full-width: false,
 ) = context bullseye.on-target(
   paged: {
-    show: c4l-util.block.with(
+    show: utils.block.with(
       margin: (y: 36pt),
       width: 100%,
       padding: (top: 24pt, right: 36pt, bottom: 30pt, left: 36pt),
@@ -68,13 +68,13 @@
   full-width: false,
 ) = context bullseye.on-target(
   paged: {
-    show: c4l-util.block.with(
+    show: utils.block.with(
       margin: (top: 24pt, bottom: 8pt, x: 0.5%),
       width: 100%,
       padding: (top: 24pt, right: 48pt, bottom: 30pt, left: 36pt),
       fill: rgb("#fbeffa"),
       left-bar: rgb("#b00ca9"),
-      top-right-float: (dx: 3pt, dy: 6pt, body: c4l-util.icon-flag(rgb("#b00ca9"), "lightbulb")),
+      top-right-float: (dx: 3pt, dy: 6pt, body: utils.icon-flag(rgb("#b00ca9"), "lightbulb")),
     )
 
     body
@@ -108,13 +108,13 @@
   full-width: false,
 ) = context bullseye.on-target(
   paged: {
-    show: c4l-util.block.with(
+    show: utils.block.with(
       margin: (top: 24pt, bottom: 8pt, x: 0.5%),
       width: 100%,
       padding: (top: 24pt, right: 48pt, bottom: 30pt, left: 36pt),
       fill: rgb("#eff8fd"),
       left-bar: rgb("#16b9ff"),
-      top-right-float: (dx: 3pt, dy: 6pt, body: c4l-util.icon-flag(rgb("#16b9ff"), "thumbtack")),
+      top-right-float: (dx: 3pt, dy: 6pt, body: utils.icon-flag(rgb("#16b9ff"), "thumbtack")),
     )
 
     body
@@ -149,7 +149,7 @@
   // TODO quote
 ) = context bullseye.on-target(
   paged: {
-    show: c4l-util.block.with(
+    show: utils.block.with(
       margin: (x: 10%, y: 36pt),
       width: 100%,
       padding: (left: 16pt),
@@ -203,8 +203,6 @@
 ) = context bullseye.on-target(
   paged: {
     let icon(fill, icon) = {
-      import "libs.typ": fontawesome.fa-icon
-
       show: block.with(
         inset: (x: 12pt, y: 8pt),
       )
@@ -213,7 +211,7 @@
     }
 
     {
-      show: c4l-util.block.with(
+      show: utils.block.with(
         margin: (x: 10%),
         width: 100%,
         padding: (top: 24pt, right: 48pt, bottom: 30pt, left: 36pt),
@@ -225,7 +223,7 @@
       do
     }
     {
-      show: c4l-util.block.with(
+      show: utils.block.with(
         margin: (x: 10%),
         width: 100%,
         padding: (top: 24pt, right: 48pt, bottom: 30pt, left: 36pt),
@@ -275,7 +273,7 @@
   // TODO comfort-reading
 ) = context bullseye.on-target(
   paged: {
-    show: c4l-util.block.with(
+    show: utils.block.with(
       margin: (x: 11%, y: 36pt),
       shadow: true,
       width: 100%,
@@ -317,7 +315,7 @@
   full-width: false,
 ) = context bullseye.on-target(
   paged: {
-    show: c4l-util.block.with(
+    show: utils.block.with(
       margin: (x: 11%, y: 36pt),
       shadow: true,
       width: 100%,
@@ -408,13 +406,13 @@
   full-width: false,
 ) = context bullseye.on-target(
   paged: {
-    show: c4l-util.block.with(
+    show: utils.block.with(
       margin: (top: 24pt, bottom: 8pt, x: 0.5%),
       width: 100%,
       padding: (top: 24pt, right: 48pt, bottom: 30pt, left: 36pt),
       fill: rgb("#fef6ed"),
       left-bar: rgb("#f88923"),
-      top-right-float: (dx: 3pt, dy: 6pt, body: c4l-util.icon-flag(rgb("#f88923"), "circle-exclamation")),
+      top-right-float: (dx: 3pt, dy: 6pt, body: utils.icon-flag(rgb("#f88923"), "circle-exclamation")),
     )
 
     body
@@ -488,7 +486,7 @@
   // TODO ordered-list
 ) = context bullseye.on-target(
   paged: {
-    show: c4l-util.block.with(
+    show: utils.block.with(
       margin: (top: 24pt, bottom: 8pt, x: 0.5%),
       width: 100%,
       padding: (top: 24pt, right: 48pt, bottom: 30pt, left: 36pt),
@@ -556,13 +554,13 @@
   full-width: false,
 ) = context bullseye.on-target(
   paged: {
-    show: c4l-util.block.with(
+    show: utils.block.with(
       margin: (top: 24pt, bottom: 8pt, x: 11%),
       shadow: true,
       width: 100%,
       padding: (top: 24pt, right: 36pt, bottom: 30pt, left: 36pt),
       radius: 8pt,
-      bottom-right-float: (dx: 3pt, dy: -6pt, body: c4l-util.icon-flag(rgb("#497ae9"), "exclamation-circle")),
+      bottom-right-float: (dx: 3pt, dy: -6pt, body: utils.icon-flag(rgb("#497ae9"), "exclamation-circle")),
     )
     set text(style: "italic")
 
@@ -600,7 +598,7 @@
   full-width: false,
 ) = context bullseye.on-target(
   paged: {
-    show: c4l-util.block.with(
+    show: utils.block.with(
       margin: (x: 10%, y: 36pt),
       width: 100%,
       padding: (top: 24pt, right: 48pt, bottom: 30pt, left: 36pt),

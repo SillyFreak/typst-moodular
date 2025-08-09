@@ -34,7 +34,7 @@ This package is somewhat opinionated, as it contains features tailored towards s
 )
 
 #module(
-  read("/src/c4l.typ"),
+  read("/src/c4l/mod.typ"),
   name: "c4l",
   label-prefix: "c4l",
 )

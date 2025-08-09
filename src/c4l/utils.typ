@@ -1,3 +1,5 @@
+#import "/src/libs.typ": umbra.shadow-path, fontawesome.fa-icon
+
 #let margin(..margins) = {
   assert.eq(margins.pos().len(), 0)
   let margins = margins.named()
@@ -5,8 +7,6 @@
 }
 
 #let shadow(body, ..args) = {
-  import "libs.typ": umbra.shadow-path
-
   assert.eq(args.pos().len(), 0)
 
   layout(size => {
@@ -88,8 +88,6 @@
 }
 
 #let icon-flag(fill, icon) = {
-  import "libs.typ": fontawesome.fa-icon
-
   show: std.block.with(
     inset: (x: 7pt, y: 4pt),
     radius: (top-left: 3pt, bottom-left: 3pt),
