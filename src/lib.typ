@@ -1,5 +1,3 @@
-#import "libs.typ": bullseye, bullseye.html
-
 #import "c4l.typ"
 #import "generico.typ"
 #import "htmlx.typ"
@@ -33,6 +31,8 @@
 ///
 /// -> function
 #let setup() = body => {
+  import "libs.typ": bullseye, bullseye.html
+
   // paged: setup page, font, link styling
   show: bullseye.show-target(paged: rest => {
     set page(height: auto, margin: 1cm)
@@ -92,7 +92,11 @@
   /// the content to put into a frame
   /// -> content
   body,
-) = context bullseye.on-target(
-  paged: body,
-  html: html.frame(body),
-)
+) = {
+  import "libs.typ": bullseye, bullseye.html
+
+  context bullseye.on-target(
+    paged: body,
+    html: html.frame(body),
+  )
+}
