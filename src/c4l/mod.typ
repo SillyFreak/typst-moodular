@@ -1,7 +1,7 @@
 #import "/src/libs.typ": bullseye, fontawesome.fa-icon
 
+#import "paged.typ"
 #import "htmlx.typ"
-#import "utils.typ"
 
 = Contextual components
 
@@ -22,9 +22,8 @@
   full-width: false,
 ) = context bullseye.on-target(
   paged: {
-    show: utils.block.with(
-      margin: (y: 36pt),
-      width: 100%,
+    show: paged.container.with(
+      width: if full-width { 100% } else { 75% },
       padding: (top: 24pt, right: 36pt, bottom: 30pt, left: 36pt),
       fill: rgb("#f1f5fe"),
       left-bar: rgb("#387af1"),
@@ -60,13 +59,12 @@
   full-width: false,
 ) = context bullseye.on-target(
   paged: {
-    show: utils.block.with(
-      margin: (top: 24pt, bottom: 8pt, x: 0.5%),
-      width: 100%,
+    show: paged.container.with(
+      width: if full-width { 99% } else { 75% },
       padding: (top: 24pt, right: 48pt, bottom: 30pt, left: 36pt),
       fill: rgb("#fbeffa"),
       left-bar: rgb("#b00ca9"),
-      top-right-float: (dx: 3pt, dy: 6pt, body: utils.icon-flag(rgb("#b00ca9"), "lightbulb")),
+      top-right-float: (dx: 3pt, dy: 6pt, body: paged.icon-flag(rgb("#b00ca9"), "lightbulb")),
     )
 
     body
@@ -99,13 +97,12 @@
   full-width: false,
 ) = context bullseye.on-target(
   paged: {
-    show: utils.block.with(
-      margin: (top: 24pt, bottom: 8pt, x: 0.5%),
-      width: 100%,
+    show: paged.container.with(
+      width: if full-width { 99% } else { 75% },
       padding: (top: 24pt, right: 48pt, bottom: 30pt, left: 36pt),
       fill: rgb("#eff8fd"),
       left-bar: rgb("#16b9ff"),
-      top-right-float: (dx: 3pt, dy: 6pt, body: utils.icon-flag(rgb("#16b9ff"), "thumbtack")),
+      top-right-float: (dx: 3pt, dy: 6pt, body: paged.icon-flag(rgb("#16b9ff"), "thumbtack")),
     )
 
     body
@@ -140,21 +137,33 @@
   attribution: none,
 ) = context bullseye.on-target(
   paged: {
-    show: utils.block.with(
-      margin: (x: 10%, y: 36pt),
-      width: 100%,
-      padding: (left: 16pt),
-      left-bar: 4pt+rgb("#387af1"),
+    show: paged.container.with(
+      width: if full-width { 100% } else { 90% },
     )
-    show: block.with(inset: (top: 4pt, bottom: 2pt))
+    {
+      show: paged.container.with(
+        spacing: 24pt,
+        padding: (left: 16pt, y: 4pt),
+        left-bar: 4pt+rgb("#387af1"),
+      )
 
-    let qm(body) = {
-      set text(1.2em, rgb("#387af1"), weight: "bold")
-      box(height: 0.5em, body)
+      set text(font: "Liberation Serif")
+
+      let qm(body) = {
+        set text(1.2em, rgb("#387af1"), weight: "bold")
+        box(height: 0.5em, body)
+      }
+      qm[“]
+      h(2pt)
+      text(style: "italic", body)
+      h(2pt)
+      qm[”]
     }
-    qm[“]
-    text(font: "Liberation Serif", style: "italic", body)
-    qm[”]
+    if attribution != none {
+      set align(right)
+
+      attribution
+    }
   },
   html: {
     show: htmlx.container.with(
@@ -203,13 +212,13 @@
         inset: (x: 12pt, y: 8pt),
       )
 
-      fa-icon(icon, 1.5em, fill)
+      fa-icon(icon, 1.5em, fill, solid: true)
     }
 
     {
-      show: utils.block.with(
-        margin: (x: 10%),
-        width: 100%,
+      show: paged.container.with(
+        spacing: 24pt,
+        width: if full-width { 100% } else { 90% },
         padding: (top: 24pt, right: 48pt, bottom: 30pt, left: 36pt),
         fill: rgb("#f1fbf5"),
         radius: 10pt,
@@ -219,9 +228,9 @@
       do
     }
     {
-      show: utils.block.with(
-        margin: (x: 10%),
-        width: 100%,
+      show: paged.container.with(
+        spacing: 24pt,
+        width: if full-width { 100% } else { 90% },
         padding: (top: 24pt, right: 48pt, bottom: 30pt, left: 36pt),
         fill: rgb("#ffefef"),
         radius: 10pt,
@@ -271,14 +280,22 @@
   comfort-reading: false,
 ) = context bullseye.on-target(
   paged: {
-    show: utils.block.with(
-      margin: (x: 11%, y: 36pt),
+    show: paged.container.with(
+      width: if full-width { 94% } else { 88% },
+      padding: (top: 30pt, right: 40pt, bottom: 32pt, left: 40pt),
       shadow: true,
-      width: 100%,
-      padding: (top: 30pt, bottom: 32pt, x: 40pt),
     )
 
+    set text(font: "Liberation Serif") if comfort-reading
+
     body
+
+    if attribution != none {
+      set align(right)
+      set text(style: "italic")
+
+      attribution
+    }
   },
   html: {
     show: htmlx.container.with(
@@ -319,11 +336,10 @@
   full-width: false,
 ) = context bullseye.on-target(
   paged: {
-    show: utils.block.with(
-      margin: (x: 11%, y: 36pt),
-      shadow: true,
-      width: 100%,
+    show: paged.container.with(
+      width: if full-width { 94% } else { 88% },
       padding: (y: 36pt, x: 48pt),
+      shadow: true,
     )
 
     {
@@ -408,13 +424,12 @@
   full-width: false,
 ) = context bullseye.on-target(
   paged: {
-    show: utils.block.with(
-      margin: (top: 24pt, bottom: 8pt, x: 0.5%),
-      width: 100%,
+    show: paged.container.with(
+      width: if full-width { 99% } else { 75% },
       padding: (top: 24pt, right: 48pt, bottom: 30pt, left: 36pt),
       fill: rgb("#fef6ed"),
       left-bar: rgb("#f88923"),
-      top-right-float: (dx: 3pt, dy: 6pt, body: utils.icon-flag(rgb("#f88923"), "circle-exclamation")),
+      top-right-float: (dx: 3pt, dy: 6pt, body: paged.icon-flag(rgb("#f88923"), "circle-exclamation")),
     )
 
     body
@@ -450,6 +465,7 @@
   full-width: false,
 ) = context bullseye.on-target(
   paged: {
+    show: paged.container.with(spacing: 24pt)
     set text(rgb("#3a56af"), style: "italic")
 
     body
@@ -486,9 +502,8 @@
   // TODO ordered-list
 ) = context bullseye.on-target(
   paged: {
-    show: utils.block.with(
-      margin: (top: 24pt, bottom: 8pt, x: 0.5%),
-      width: 100%,
+    show: paged.container.with(
+      width: if full-width { 100% } else { 75% },
       padding: (top: 24pt, right: 48pt, bottom: 30pt, left: 36pt),
       fill: rgb("#f2f5fd"),
       top-left-float: (dx: -3pt, dy: 6pt, body: {
@@ -505,8 +520,18 @@
     set list(
       spacing: 21pt,
       marker: {
-        set text(rgb("#497ae9"))
+        show: box.with(height: 0.65em)
+        set text(1.5em, rgb("#497ae9"))
+        set align(horizon)
+        v(-0.18em)
         sym.triangle.r.filled
+      },
+    )
+    set enum(
+      spacing: 21pt,
+      numbering: n => {
+        set text(rgb("#497ae9"), weight: "bold")
+        numbering("1.", n)
       },
     )
 
@@ -553,13 +578,16 @@
   full-width: false,
 ) = context bullseye.on-target(
   paged: {
-    show: utils.block.with(
-      margin: (top: 24pt, bottom: 8pt, x: 11%),
-      shadow: true,
-      width: 100%,
+    show: paged.container.with(
+      spacing: 48pt,
+      width: if full-width { 94% } else { 75% },
       padding: (top: 24pt, right: 36pt, bottom: 30pt, left: 36pt),
+      shadow: true,
       radius: 8pt,
-      bottom-right-float: (dx: 3pt, dy: -6pt, body: utils.icon-flag(rgb("#497ae9"), "exclamation-circle")),
+      bottom-right-float: (dx: 3pt, dy: -6pt, body: {
+        show: scale.with(x: -100%)
+        paged.icon-flag(rgb("#497ae9"), "repeat")
+      }),
     )
     set text(style: "italic")
 
@@ -596,9 +624,8 @@
   full-width: false,
 ) = context bullseye.on-target(
   paged: {
-    show: utils.block.with(
-      margin: (x: 10%, y: 36pt),
-      width: 100%,
+    show: paged.container.with(
+      width: if full-width { 100% } else { 75% },
       padding: (top: 24pt, right: 48pt, bottom: 30pt, left: 36pt),
       fill: rgb("#f1f5fe"),
       radius: 10pt,

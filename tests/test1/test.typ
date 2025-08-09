@@ -34,13 +34,13 @@ public static void main(String[] args) {
 
 #c4l.key-concept[C4L Key concept #lorem(50)]
 
-#c4l.tip[C4L Tip]
+#c4l.tip(full-width: true)[C4L Tip]
 
 #c4l.reminder[C4L Reminder]
 
 #lorem(50)
 
-#c4l.quote[C4L Quote #lorem(50)]
+#c4l.quote(full-width: true)[C4L Quote #lorem(50)]
 
 #c4l.quote(attribution: lorem(5))[C4L Quote #lorem(50)]
 
@@ -50,7 +50,7 @@ public static void main(String[] args) {
 
 #c4l.reading-context[C4L Reading Context #lorem(50)]
 
-#c4l.reading-context(attribution: lorem(5), comfort-reading: true)[C4L Quote #lorem(50)]
+#c4l.reading-context(attribution: lorem(5), full-width: true, comfort-reading: true)[C4L Quote #lorem(50)]
 
 #c4l.example[C4L Example][#lorem(50)]
 
@@ -84,7 +84,7 @@ public static void main(String[] args) {
   - #lorem(20)
 ]
 
-#c4l.learning-outcomes[C4L Learning Outcomes][
+#c4l.learning-outcomes(full-width: true)[C4L Learning Outcomes][
   + #lorem(5) #lorem(15)
   + #lorem(20)
   + #lorem(20)
@@ -102,7 +102,7 @@ public static void main(String[] args) {
 
 #line(length: 100%)
 
-#c4l.card[C4L Card]
+#c4l.card[C4L Card #lorem(50)]
 
 #lorem(50)
 
