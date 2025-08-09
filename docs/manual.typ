@@ -37,6 +37,18 @@ This package is somewhat opinionated, as it contains features tailored towards s
   read("/src/c4l/mod.typ"),
   name: "c4l",
   label-prefix: "c4l",
+  scope: (
+    c4l: moodular.c4l,
+    c4l-example: (pad: none) => body => {
+      set text(font: "Noto Sans")
+      show: it => {
+        if pad == none { return it }
+        show: std.pad.with(..pad)
+        it
+      }
+      body
+    }
+  )
 )
 
 #module(

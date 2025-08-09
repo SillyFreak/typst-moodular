@@ -15,9 +15,7 @@
 /// This is how the component looks in PDF preview:
 ///
 /// #example(dir: ttb, scale-preview: 100%, ```typc
-/// >>> import moodular.c4l
-/// >>> set text(font: "Noto Sans")
-/// >>> show: pad.with(y: -30pt)
+/// >>> show: c4l-example(pad: (y: -30pt))
 /// c4l.key-concept[#lorem(20)]
 /// ```)
 ///
@@ -55,8 +53,7 @@
 /// This is how the component looks in PDF preview:
 ///
 /// #example(dir: ttb, scale-preview: 100%, ```typc
-/// >>> import moodular.c4l
-/// >>> show: pad.with(top: -20pt)
+/// >>> show: c4l-example(pad: (top: -20pt))
 /// c4l.tip[#lorem(20)]
 /// ```)
 ///
@@ -95,8 +92,7 @@
 /// This is how the component looks in PDF preview:
 ///
 /// #example(dir: ttb, scale-preview: 100%, ```typc
-/// >>> import moodular.c4l
-/// >>> show: pad.with(top: -20pt)
+/// >>> show: c4l-example(pad: (top: -20pt))
 /// c4l.reminder[#lorem(20)]
 /// ```)
 ///
@@ -135,8 +131,7 @@
 /// This is how the component looks in PDF preview:
 ///
 /// #example(dir: ttb, scale-preview: 100%, ```typc
-/// >>> import moodular.c4l
-/// >>> show: pad.with(y: -30pt)
+/// >>> show: c4l-example(pad: (y: -30pt))
 /// c4l.quote[#lorem(20)]
 /// ```)
 ///
@@ -351,8 +346,7 @@
 /// This is how the component looks in PDF preview:
 ///
 /// #example(dir: ttb, scale-preview: 100%, ```typc
-/// >>> import moodular.c4l
-/// >>> show: pad.with(y: 10pt)
+/// >>> show: c4l-example(pad: (y: 10pt))
 /// c4l.figure[#lorem(20)]
 /// ```)
 ///
@@ -393,8 +387,7 @@
 /// This is how the component looks in PDF preview:
 ///
 /// #example(dir: ttb, scale-preview: 100%, ```typc
-/// >>> import moodular.c4l
-/// >>> show: pad.with(top: -20pt)
+/// >>> show: c4l-example(pad: (top: -20pt))
 /// c4l.attention[#lorem(20)]
 /// ```)
 ///
@@ -436,8 +429,7 @@
 /// This is how the component looks in PDF preview:
 ///
 /// #example(dir: ttb, scale-preview: 100%, ```typc
-/// >>> import moodular.c4l
-/// >>> show: pad.with(y: 10pt)
+/// >>> show: c4l-example(pad: (y: 10pt))
 /// c4l.procedural-context[#lorem(20)]
 /// ```)
 ///
@@ -470,8 +462,7 @@
 /// This is how the component looks in PDF preview:
 ///
 /// #example(dir: ttb, scale-preview: 100%, ```typc
-/// >>> import moodular.c4l
-/// >>> show: pad.with(top: -20pt)
+/// >>> show: c4l-example(pad: (top: -20pt))
 /// c4l.learning-outcomes[Title][#lorem(20)]
 /// ```)
 ///
@@ -541,8 +532,7 @@
 /// This is how the component looks in PDF preview:
 ///
 /// #example(dir: ttb, scale-preview: 100%, ```typc
-/// >>> import moodular.c4l
-/// >>> show: pad.with(top: 10pt, bottom: 20pt)
+/// >>> show: c4l-example(pad: (top: 10pt, bottom: 20pt))
 /// c4l.expected-feedback[#lorem(20)]
 /// ```)
 ///
@@ -585,8 +575,7 @@
 /// This is how the component looks in PDF preview:
 ///
 /// #example(dir: ttb, scale-preview: 100%, ```typc
-/// >>> import moodular.c4l
-/// >>> show: pad.with(y: -30pt)
+/// >>> show: c4l-example(pad: (y: -30pt))
 /// c4l.card[#lorem(20)]
 /// ```)
 ///
