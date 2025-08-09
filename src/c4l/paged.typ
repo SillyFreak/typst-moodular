@@ -1,11 +1,5 @@
 #import "/src/libs.typ": umbra.shadow-path, fontawesome.fa-icon
 
-#let margin(..margins) = {
-  assert.eq(margins.pos().len(), 0)
-  let margins = margins.named()
-  block.with(inset: margins)
-}
-
 #let shadow(body, ..args) = {
   assert.eq(args.pos().len(), 0)
 
@@ -15,7 +9,7 @@
     place(shadow-path(
       (0pt, 0pt), (0pt, height), (width, height), (width, 0pt),
       shadow-radius: 1.2cm,
-      shadow-stops: (gray.lighten(80%), white),
+      shadow-stops: (gray.transparentize(80%), white.transparentize(100%)),
       closed: true,
       ..args,
     ))
@@ -26,11 +20,12 @@
 
 #let _shadow = shadow
 
-#let block(
+#let container(
   body,
-  margin: none,
+  spacing: 36pt,
+  width: 100%,
   shadow: none,
-  padding: none,
+  padding: (:),
   left-bar: none,
   top-left-float: none,
   top-right-float: none,
@@ -38,9 +33,13 @@
   bottom-right-float: none,
   ..args,
 ) = {
-  assert.eq(args.pos().len(), 0)
+  assert.eq(args.pos(), ())
 
-  show: std.block.with(inset: margin)
+  show: block.with(
+    width: 100%,
+    inset: (x: (100% - width) / 2),
+    spacing: spacing,
+  )
   show: it => {
     if shadow in (none, false) { it }
     else if shadow == true { _shadow(it) }
@@ -48,6 +47,7 @@
     else { panic("shadow must be none, bool or dictionary") }
   }
   show: std.block.with(
+    width: 100%,
     inset: padding,
     ..{
       if type(left-bar) == color { (stroke: (left: 6pt+left-bar)) }
@@ -89,10 +89,10 @@
 
 #let icon-flag(fill, icon) = {
   show: std.block.with(
-    inset: (x: 7pt, y: 4pt),
+    inset: (x: 7pt, top: 3pt, bottom: 6pt),
     radius: (top-left: 3pt, bottom-left: 3pt),
     fill: fill,
   )
 
-  fa-icon(icon, 1.5em, white)
+  fa-icon(icon, 1.3em, white)
 }
