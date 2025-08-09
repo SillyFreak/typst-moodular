@@ -1,4 +1,4 @@
-#import "libs.typ": bullseye
+#import "/src/libs.typ": bullseye
 
 #let generico(placeholder, block: false, ..fields) = {
   assert.eq(fields.pos().len(), 0)

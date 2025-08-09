@@ -1,5 +1,5 @@
-#import "c4l.typ"
-#import "generico.typ"
+#import "c4l/mod.typ" as c4l
+#import "generico/mod.typ" as generico
 #import "htmlx.typ"
 
 /// Moodular's main Template function, to be called as a show rule:
