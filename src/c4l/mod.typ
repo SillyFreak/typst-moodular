@@ -136,7 +136,8 @@
   body,
   /// whether the component should take up the full text width
   full-width: false,
-  // TODO quote
+  /// the attribution associated with the quote
+  attribution: none,
 ) = context bullseye.on-target(
   paged: {
     show: utils.block.with(
@@ -160,6 +161,7 @@
       "quote",
       "Quote",
       full-width: full-width,
+      quote: attribution != none,
     )
     {
       show: htmlx.div.with(class: "c4l-quote-body")
@@ -169,7 +171,11 @@
       parbreak()
       body
     }
-    // TODO quote
+    if attribution != none {
+      show: htmlx.div.with(class: "c4l-embedded-caption", aria-label: "Caption")
+
+      attribution
+    }
   },
 )
 
@@ -259,8 +265,10 @@
   body,
   /// whether the component should take up the full text width
   full-width: false,
-  // TODO quote
-  // TODO comfort-reading
+  /// the attribution associated with the quote
+  attribution: none,
+  /// whether to display the context in a serif font
+  comfort-reading: false,
 ) = context bullseye.on-target(
   paged: {
     show: utils.block.with(
@@ -277,12 +285,18 @@
       "readingcontext",
       "Key Reading context",
       full-width: full-width,
+      quote: attribution != none,
+      comfort-reading: comfort-reading,
     )
 
     parbreak()
     body
 
-    // TODO quote
+    if attribution != none {
+      show: htmlx.div.with(class: "c4l-embedded-caption", aria-label: "Caption")
+
+      attribution
+    }
   },
 )
 
