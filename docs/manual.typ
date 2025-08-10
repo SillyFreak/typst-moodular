@@ -12,9 +12,12 @@
   // date: datetime(year: ..., month: ..., day: ...),
 
   // logo: rect(width: 5cm, height: 5cm),
-  // abstract: [
-  //   A PACKAGE for something
-  // ],
+  abstract: [
+    With Typst's upcoming HTML export, a new opportinity for using Typst in teaching opens up:
+    in addition to worksheets and other printed/printable resources, content in learning management systems (LMS) can be created with Typst.
+    This package provides tools for writing materials targeting HTML tailored for Moodle, helps previewing HTML content in the Typst webapp or Tinymist,
+    and integrates the Components for Learning (C4L) that offer a rich visual and semantic language for structuring information.
+  ],
 
   scope: (moodular: moodular),
 )
