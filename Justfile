@@ -13,11 +13,13 @@ doc:
   # typst compile --input theme=dark docs/thumbnail.typ thumbnail-dark.svg
   typst compile docs/thumbnail.typ thumbnail.svg
   typst compile --features html --format html docs/thumbnail.typ
+  typst compile --features html --input moodular-remove-spacer=true docs/thumbnail.typ docs/thumbnail-no-spacer.html
   for f in $(find gallery -maxdepth 1 -name '*.typ'); do \
     typst compile "$f"; \
   done
   typst compile --input mode=export gallery/using-moodular.typ gallery/using-moodular-paged.pdf
   typst compile --features html --format html gallery/using-moodular.typ
+  typst compile --features html --input moodular-remove-spacer=true gallery/using-moodular.typ gallery/using-moodular-no-spacer.html
 
 # run test suite
 test *args:

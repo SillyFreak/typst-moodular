@@ -3,6 +3,20 @@
 #import "paged.typ"
 #import "htmlx.typ"
 
+/// Enables or disables the removal of ```html <p class="c4l-spacer"></p>``` elements from the
+/// output when exporting to HTML. By default, these elements are rendered to be consistent with the
+/// C4L editor moodle plugins (for Atto and TinyMCE), but this looks bad according to my testing on
+/// a clean Moodle install; see also https://github.com/reskit/moodle-tiny_c4l/issues/20.
+///
+/// The default of this setting can be overridden by compiling with `--input moodular-remove-spacer=true`.
+///
+///  -> content
+#let remove-spacer(
+  /// whether to remove spacer elements or not.
+  /// -> bool
+  value,
+) = htmlx.remove-spacer(value)
+
 = Contextual components
 
 /// See https://componentsforlearning.org/components/key-concept/ for details and examples rendered in HTML.

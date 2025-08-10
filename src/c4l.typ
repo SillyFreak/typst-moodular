@@ -1,4 +1,6 @@
 #import "c4l/mod.typ": (
+  remove-spacer,
+
   // contextual components
   key-concept, tip, reminder, quote, do-dont, reading-context, example, figure,
   // TODO tag, inline-tag,
