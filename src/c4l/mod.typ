@@ -710,3 +710,74 @@
     body
   },
 )
+
+= show rules
+
+/// An optional show rule that transforms all regular Typst blockquotes into C4L quotes:
+///
+/// #example(dir: ttb, scale-preview: 100%, ```typ
+/// >>> #show: c4l-example()
+/// #quote(block: true)[before ...]
+/// #show: c4l.blockquotes-as-c4l()
+/// #quote(block: true)[... after]
+/// ```)
+///
+/// -> function
+#let blockquotes-as-c4l(
+  /// whether blockquotes should take up the full text width
+  /// -> bool
+  full-width: false,
+) = body => {
+  show std.quote.where(block: true): it => {
+    quote(it.body, attribution: it.attribution, full-width: full-width)
+  }
+
+  body
+}
+
+/// An optional show rule that transforms all regular Typst figures into C4L figures:
+///
+/// ```typ
+/// #figure(image("example.png"), caption: [before ...])
+/// #show: c4l.figures-as-c4l()
+/// #figure(image("example.png"), caption: [... after])
+/// ```
+///
+/// Note that C4L figures are displayed as regular figures when exporting to PDF,
+/// so there is no difference to show here.
+/// The generated HTML would look roughly like this:
+///
+/// // work around Tidy's treatment of @@
+/// #show "PLUGINFILE": it => "@@" + it + "@@"
+///
+/// ```html
+/// <figure>
+///   <img src="PLUGINFILE/example.png" class="img-fluid">
+///   <figcaption>Figure 1: before …</figcaption>
+/// </figure>
+/// <p class="c4l-spacer"></p>
+/// <figure class="c4lv-figure" aria-label="Figure">
+///   <img src="PLUGINFILE/example.png" class="img-fluid">
+///   <figcaption><em class="c4l-figure-footer">Figure 2: … after</em></figcaption>
+/// </figure>
+/// ```
+///
+/// -> function
+#let figures-as-c4l(
+  /// whether figures should take up the full text width
+  /// -> bool
+  full-width: false,
+) = body => {
+  show std.figure: bullseye.show-target(html: it => {
+    let caption = if it.caption != none {
+      let supplement = it.supplement
+      let it = it.caption
+      [#supplement #context it.counter.display(it.numbering)]
+      it.separator
+      it.body
+    }
+    figure(it.body, caption: caption, full-width: full-width)
+  })
+
+  body
+}

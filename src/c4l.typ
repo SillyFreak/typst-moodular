@@ -1,4 +1,6 @@
 #import "c4l/mod.typ": (
+  blockquotes-as-c4l,
+  figures-as-c4l,
   remove-spacer,
 
   // contextual components
