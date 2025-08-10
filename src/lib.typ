@@ -57,12 +57,7 @@
       show: block.with(
         width: 100%,
         fill: rgb("#f5f2f0"),
-        inset: 1em,
-      )
-      show: block.with(
-        width: 100%,
-        fill: rgb("#fafafa"),
-        inset: 0.5em,
+        inset: 1.5em,
       )
       it
     },
