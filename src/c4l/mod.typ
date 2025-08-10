@@ -269,12 +269,12 @@
 /// This is how the component looks in PDF preview:
 ///
 /// #example(dir: ttb, scale-preview: 100%, ```typc
-/// >>> show: c4l-example(pad: (y: 24pt))
+/// >>> show: c4l-example(pad: (x: 1pt, y: 30pt))
 /// c4l.reading-context(comfort-reading: true)[#lorem(20)]
 /// ```)
 ///
 /// #example(dir: ttb, scale-preview: 100%, ```typc
-/// >>> show: c4l-example(pad: (y: 24pt))
+/// >>> show: c4l-example(pad: (x: 1pt, y: 30pt))
 /// c4l.reading-context(attribution: lorem(5))[#lorem(20)]
 /// ```)
 ///
@@ -332,7 +332,7 @@
 /// This is how the component looks in PDF preview:
 ///
 /// #example(dir: ttb, scale-preview: 100%, ```typc
-/// >>> show: c4l-example(pad: (y: 24pt))
+/// >>> show: c4l-example(pad: (x: 1pt, y: 30pt))
 /// c4l.example[Title][#lorem(20)]
 /// ```)
 ///
@@ -383,13 +383,13 @@
 /// #example(dir: ttb, scale-preview: 100%, ```typc
 /// >>> show: c4l-example()
 /// >>> set figure(numbering: none)
-/// c4l.figure[#lorem(20)]
+/// c4l.figure(rect())
 /// ```)
 ///
 /// #example(dir: ttb, scale-preview: 100%, ```typc
 /// >>> show: c4l-example()
 /// >>> set figure(numbering: none)
-/// c4l.figure(caption: lorem(5))[#lorem(20)]
+/// c4l.figure(rect(), caption: lorem(5))
 /// ```)
 ///
 /// -> content
@@ -618,7 +618,7 @@
 /// This is how the component looks in PDF preview:
 ///
 /// #example(dir: ttb, scale-preview: 100%, ```typc
-/// >>> show: c4l-example(pad: (y: 24pt))
+/// >>> show: c4l-example(pad: (x: 1pt, y: 30pt))
 /// c4l.expected-feedback[#lorem(20)]
 /// ```)
 ///

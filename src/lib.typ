@@ -89,12 +89,24 @@
 }
 
 /// Sets up the document for HTML preview, i.e. simulating a non-paged run of HTML content.
+/// Call this as a show rule:
+///
+/// ```typ
+/// #show: preview()
+/// ```
+///
 /// This is a wrapper around @@setup(), see that function for details.
 ///
 /// -> function
 #let preview() = setup(mode: "preview")
 
 /// Sets up the document for PDF export, i.e. producing a paged PDF document.
+/// Call this as a show rule:
+///
+/// ```typ
+/// #show: export()
+/// ```
+///
 /// This is a wrapper around @@setup(), see that function for details.
 ///
 /// -> function

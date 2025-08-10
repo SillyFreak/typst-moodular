@@ -9,7 +9,9 @@
     place(shadow-path(
       (0pt, 0pt), (0pt, height), (width, height), (width, 0pt),
       shadow-radius: 1.2cm,
-      shadow-stops: (gray.transparentize(80%), white.transparentize(100%)),
+      // the gray is lightened instead of transparentize to work in PDFs,
+      // where opacity doesn't work as well
+      shadow-stops: (gray.lighten(80%), white.transparentize(100%)),
       closed: true,
       ..args,
     ))
