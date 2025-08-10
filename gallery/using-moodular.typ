@@ -18,8 +18,8 @@ The document is compiled to both HTML and PDF, so you can see how the same conte
 == HTML preview
 
 one of Moodular's main features is setting up your document for HTML-equivalent preview.
-This includes using a single unlimited-height page, using a sans serif font for text, and showing links in blue and underlined.
-Other aspects of this include the display and blockquotes and raw blocks, which are styled to match Moodle's Boost theme's default style.
+This includes using a single unlimited-height page, using a sans serif font for text, and showing links blue and underlined.
+Other aspects of this include the display of blockquotes and raw blocks, which are styled to match Moodle's Boost theme's default style.
 
 As an example, here is a code block showing how to apply Moodular's preview settings:
 
@@ -55,7 +55,7 @@ You have already seen the `c4l.key-concept` and `c4l.quote` components in action
 ]
 
 All included components support a `full-width` variant.
-Without it, the component is displayed with a component-specific width relative to the full preview width.
+Without it, the component is displayed with a component-specific width relative to the full preview width (for most components, that width is 75%).
 Some components offer additional variants, for example to add attribution to quotes or reading contexts.
 
 Here's an example of using a `full-width` component, giving you an important disclaimer about this package:
@@ -63,7 +63,8 @@ Here's an example of using a `full-width` component, giving you an important dis
 #c4l.attention(full-width: true)[
   Not all C4L components are currently implemented in this package;
   for example, the #link("https://componentsforlearning.org/components/due-date/")[due date] and
-  #link("https://componentsforlearning.org/components/tag/")[tag] components are not yet available.
+  #link("https://componentsforlearning.org/components/tag/")[tag] components are not yet available;
+  the full list is in the #link("https://github.com/SillyFreak/typst-moodular/blob/main/docs/manual.pdf?raw%3D1")[manual].
   If you need a specific component, please open an issue at https://github.com/SillyFreak/typst-moodular/issues.
 ]
 

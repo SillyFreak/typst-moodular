@@ -21,6 +21,9 @@ doc:
   typst compile --features html --format html gallery/using-moodular.typ
   typst compile --features html --input moodular-remove-spacer=true gallery/using-moodular.typ gallery/using-moodular-no-spacer.html
 
+doc-compress:
+  oxipng -o 4 --strip safe --alpha thumbnail*.png gallery/*.png
+
 # run test suite
 test *args:
   tt run {{ args }}
