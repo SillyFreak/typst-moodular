@@ -201,6 +201,14 @@ What you should know about this is:
 - When you now edit the same resource again, all images will be shown (the placeholder has been replaced by a draft URL again).
   Assuming your new content does not contain previously unknown images, you can simply replace the whole HTML by what Moodular produced again, and all uploaded images will be preserved.
 
+=== C4l Blockquotes and figures
+
+Apart from Typst's `#quote(block: true)` which is by default styled to match Moodle, C4L also provides a #link("https://componentsforlearning.org/components/quote/")[quote component], available as #ref-fn("c4l.quote()").
+If you want all quotes in your document shown that way, you can use #ref-fn("c4l.blockquotes-as-c4l()");; see that function for more details.
+
+Likewise, C4L provides a #link("https://componentsforlearning.org/components/figure/")[figure component]. You can apply #ref-fn("c4l.figures-as-c4l()") to your document to apply that component to all regular figures.
+Note that C4L figures differ from Typst's only in HTML output; the PDF output is exactly the same.
+
 = Module reference
 
 #module(
