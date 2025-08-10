@@ -14,6 +14,8 @@ doc:
   for f in $(find gallery -maxdepth 1 -name '*.typ'); do \
     typst compile "$f"; \
   done
+  typst compile --input mode=export gallery/using-moodular.typ gallery/using-moodular-paged.pdf
+  typst compile --features html --format html gallery/using-moodular.typ
 
 # run test suite
 test *args:

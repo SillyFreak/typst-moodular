@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <h2>Using Moodular for writing instruction material</h2>
+    <p>This document is a simple example showcasing how to use the Moodular package to write instructional material in a structured and visually appealing way. The document is compiled to both HTML and PDF, so you can see how the same content is rendered in different formats.</p>
+    <div class="c4lv-keyconcept" aria-label="Key concept">Moodular can export to HTML and PDF formats. The PDF ("paged") export can be used to preview web-only content, or be used as an additional distribution format.</div>
+    <h3>HTML preview</h3>
+    <p>one of Moodular's main features is setting up your document for HTML-equivalent preview. This includes using a single unlimited-height page, using a sans serif font for text, and showing links in blue and underlined. Other aspects of this include the display and blockquotes and raw blocks, which are styled to match Moodle's Boost theme's default style.</p>
+    <p>As an example, here is a code block showing how to apply Moodular's preview settings:</p>
+    <pre class="language-typ"><code>#show: moodular.preview()</code></pre>
+    <p>If you want to instead target both HTML and PDF exports, you can instead use this to setup your document:</p>
+    <pre class="language-typ"><code>#show: moodular.export()</code></pre>
+    <p>This will still apply styles, but not change the page setup, so that the document can be viewed normally, as well as printed.</p>
+    <p>For dynamic use cases, you can also use the <code>moodular.setup()</code> function, which takes a <code>mode</code> parameter that can be set to either <code>"preview"</code> or <code>"export"</code>.</p>
+    <h3>Components for Learning (C4L)</h3>
+    <p>A huge part is providing the <a href="https://componentsforlearning.org/">Components for Learning (C4L)</a> features:</p>
+    <div class="c4lv-quote" aria-label="Quote">
+      <div class="c4l-quote-body">
+        <div class="c4l-quote-line"> </div>
+        <div class="c4l-quote-text">
+          <p><strong>Components for Learning</strong> is an open project aiming to provide <strong>teachers and educators</strong> with a set of visual components that fit the complex needs of learning contents.</p>
+          <p>Such components are intended to be used in the HTML5 editor of your choice. Check the guide for a more detailed description of each component, examples, use cases and more!</p>
+        </div>
+      </div>
+    </div>
+    <p>You have already seen the <code>c4l.key-concept</code> and <code>c4l.quote</code> components in action in this document, and here's a <code>c4l.tip</code>:</p>
+    <div class="c4lv-tip" aria-label="Tip">Typst generally uses kebab-case for identifiers, so the C4L components in this package are named that way. For the <a href="https://componentsforlearning.org/components/all-purpose-card/">"all-purpose card" component</a>, I opted for the shorter <code>c4l.card</code>.</div>
+    <p>All included components support a <code>full-width</code> variant. Without it, the component is displayed with a component-specific width relative to the full preview width. Some components offer additional variants, for example to add attribution to quotes or reading contexts.</p>
+    <p>Here's an example of using a <code>full-width</code> component, giving you an important disclaimer about this package:</p>
+    <div class="c4lv-attention c4l-full-width-variant" aria-label="Attention">Not all C4L components are currently implemented in this package; for example, the <a href="https://componentsforlearning.org/components/due-date/">due date</a> and <a href="https://componentsforlearning.org/components/tag/">tag</a> components are not yet available. If you need a specific component, please open an issue at <a href="https://github.com/SillyFreak/typst-moodular/issues">https://github.com/SillyFreak/typst-moodular/issues</a>.</div>
+    <h2>Conclusion</h2>
+    <p>This document is now long enough to not fit on a single page, so you can see how the PDF export handles pagination in both the HTML preview and PDF distribution use cases.</p>
+  </body>
+</html>
