@@ -60,17 +60,22 @@ See the [manual](docs/manual.pdf) for details.
 
 ## License
 
-Copyright (C) 2025 Clemens Koza
+> Copyright (C) 2025 Clemens Koza
+>
+> This program is free software: you can redistribute it and/or modify
+> it under the terms of the GNU General Public License as published by
+> the Free Software Foundation, either version 3 of the License, or
+> (at your option) any later version.
+>
+> This program is distributed in the hope that it will be useful,
+> but WITHOUT ANY WARRANTY; without even the implied warranty of
+> MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+> GNU General Public License for more details.
+>
+> You should have received a copy of the GNU General Public License
+> along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/>.
+(GPL licensed Typst packages are somewhat rare, so I'll comment on that here:
+I have chosen this license as I build on top of C4L – although I don't believe that this package is strictly speaking a derivative work – and because the Moodle ecosystem uses GPL throughout.
+In case you are unsure whether you can use this package in your project, take a look [here](https://forum.typst.app/t/lgplv3-licence-in-popular-typst-library-how-to-understand/1746).
+Most importantly: it is definitely ok to use this package to create content for your Moodle courses; the license will not affect your content in any way.)

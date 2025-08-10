@@ -26,11 +26,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 
-## [0.1.0] - 2025-01-01
+## [0.1.0] - 2025-08-10
 
 ### Added
 
-- ...
+- Styling of document for HTML (transforming some elements) and PDF export (matching Moodle's styles)
+- Support for C4L (Components for Learning) elements
 
 
 [Unreleased]: https://github.com/SillyFreak/typst-moodular/compare/v0.1.0...HEAD

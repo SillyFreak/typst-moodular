@@ -8,8 +8,7 @@
   package-meta: toml("/typst.toml").package,
   title: [Moodular],
   subtitle: [Use Typst's HTML export to generate content for your Moodle courses],
-  date: none,
-  // date: datetime(year: ..., month: ..., day: ...),
+  date: datetime(year: 2025, month: 8, day: 10),
 
   // logo: rect(width: 5cm, height: 5cm),
   abstract: [
