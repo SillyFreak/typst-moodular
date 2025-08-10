@@ -6,6 +6,8 @@ This package is somewhat opinionated, as it contains features tailored towards s
 
 - [Components for Learning (C4L)](https://componentsforlearning.org/) ([Atto](https://moodle.org/plugins/atto_c4l)/[TinyMCE](https://moodle.org/plugins/tiny_c4l) plugin): Moodular recreates the HTML structure of C4L blocks, and also renders them for PDF export. Most but not all components are currently supported; please [open an issue](https://github.com/SillyFreak/typst-moodular/issues) if you need a specific one.
 
+The [gallery](https://github.com/SillyFreak/typst-moodular/tree/main/gallery) has an example document rendered as PDF, HTML, and screenshots of the Moodle-rendered HTML to get an idea of what the package does.
+
 ## Getting Started
 
 To add this package to your project, use this:
@@ -49,6 +51,8 @@ By default, Moodular does not remove the spacer to remain consistent with the of
 With that option applied, the rendered result would look like this:
 
 <img src="./thumbnail-moodle-no-spacer.png">
+
+For comparison, you can see the version with spacer [here](./thumbnail-moodle.png).
 
 ## Usage
 
