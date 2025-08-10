@@ -30,9 +30,11 @@
 ///
 /// -> content
 #let key-concept(
+  /// the body to wrap in the component
   /// -> content
   body,
   /// whether the component should take up the full text width
+  /// -> bool
   full-width: false,
 ) = context bullseye.on-target(
   paged: {
@@ -67,9 +69,11 @@
 ///
 /// -> content
 #let tip(
+  /// the body to wrap in the component
   /// -> content
   body,
   /// whether the component should take up the full text width
+  /// -> bool
   full-width: false,
 ) = context bullseye.on-target(
   paged: {
@@ -105,9 +109,11 @@
 ///
 /// -> content
 #let reminder(
+  /// the body to wrap in the component
   /// -> content
   body,
   /// whether the component should take up the full text width
+  /// -> bool
   full-width: false,
 ) = context bullseye.on-target(
   paged: {
@@ -148,11 +154,14 @@
 ///
 /// -> content
 #let quote(
+  /// the body to wrap in the component
   /// -> content
   body,
   /// whether the component should take up the full text width
+  /// -> bool
   full-width: false,
   /// the attribution associated with the quote
+  /// -> content | none
   attribution: none,
 ) = context bullseye.on-target(
   paged: {
@@ -218,11 +227,14 @@
 ///
 /// -> content
 #let do-dont(
+  /// the body to wrap in the component's "do" block
   /// -> content
   do,
+  /// the body to wrap in the component's "don't" block
   /// -> content
   dont,
   /// whether the component should take up the full text width
+  /// -> bool
   full-width: false,
 ) = context bullseye.on-target(
   paged: {
@@ -294,13 +306,17 @@
 ///
 /// -> content
 #let reading-context(
+  /// the body to wrap in the component
   /// -> content
   body,
   /// whether the component should take up the full text width
+  /// -> bool
   full-width: false,
   /// the attribution associated with the quote
+  /// -> content | none
   attribution: none,
   /// whether to display the context in a serif font
+  /// -> bool
   comfort-reading: false,
 ) = context bullseye.on-target(
   paged: {
@@ -352,11 +368,14 @@
 ///
 /// -> content
 #let example(
+  /// the example's title
   /// -> content
   title,
+  /// the body to wrap in the component
   /// -> content
   body,
   /// whether the component should take up the full text width
+  /// -> bool
   full-width: false,
 ) = context bullseye.on-target(
   paged: {
@@ -408,8 +427,11 @@
 ///
 /// -> content
 #let figure(
+  /// the arguments accepted by Typst' built-in #link("https://typst.app/docs/reference/model/figure/")[`figure()`]
+  /// -> arguments
   ..args,
   /// whether the component should take up the full text width
+  /// -> bool
   full-width: false,
 ) = context bullseye.on-target(
   paged: std.figure(..args),
@@ -449,9 +471,11 @@
 ///
 /// -> content
 #let attention(
+  /// the body to wrap in the component
   /// -> content
   body,
   /// whether the component should take up the full text width
+  /// -> bool
   full-width: false,
 ) = context bullseye.on-target(
   paged: {
@@ -490,9 +514,11 @@
 ///
 /// -> content
 #let procedural-context(
+  /// the body to wrap in the component
   /// -> content
   body,
   /// whether the component should take up the full text width
+  /// -> bool
   full-width: false,
 ) = context bullseye.on-target(
   paged: {
@@ -535,11 +561,14 @@
 ///
 /// -> content
 #let learning-outcomes(
+  /// the block's title
   /// -> content
   title,
+  /// the body to wrap in the component
   /// -> content
   body,
   /// whether the component should take up the full text width
+  /// -> bool
   full-width: false,
 ) = context bullseye.on-target(
   paged: {
@@ -638,9 +667,11 @@
 ///
 /// -> content
 #let expected-feedback(
+  /// the body to wrap in the component
   /// -> content
   body,
   /// whether the component should take up the full text width
+  /// -> bool
   full-width: false,
 ) = context bullseye.on-target(
   paged: {
@@ -684,9 +715,11 @@
 ///
 /// -> content
 #let card(
+  /// the body to wrap in the component
   /// -> content
   body,
   /// whether the component should take up the full text width
+  /// -> bool
   full-width: false,
 ) = context bullseye.on-target(
   paged: {
