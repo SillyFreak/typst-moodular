@@ -30,7 +30,7 @@ In preview, that example looks like this:
 
 <img src="./thumbnail.svg">
 
-Exporting to HTML (and for now manually extracting the `<body>` tag) gives you this (line breaks inserted for preview purposes):
+Exporting to HTML (and for now, manually extracting the `<body>` tag) gives you this (line breaks inserted for preview purposes):
 
 ```html
 <p class="c4l-spacer"></p>
@@ -40,11 +40,15 @@ magnam aliquam quaerat.</div>
 <pre class="language-py"><code>print("Hello, world!")  # this is an example</code></pre>
 ```
 
-... which is almost identical to what you get when entering the same in Moodle using the TinyMCE editor with the C4L plugin, and looks like this:
+... which is almost identical to what you get when entering the same in Moodle using the TinyMCE editor with the C4L plugin.
 
-<img src="./thumbnail-moodle.png">
+the `<p class="c4l-spacer"></p>` elements that are part of the components according to the C4L Moodle plugins seem to actually have a negative effect on spacing.
+See [this issue](https://github.com/reskit/moodle-tiny_c4l/issues/20) to track progress on this.
+By default, Moodular does not remove the spacer to remain consistent with the official plugins, but you can change this by calling `#c4l.remove-spacer(true)` or passing the `--input moodular-remove-spacer=true` option when compiling.
 
-(Note that the spacing is not perfect and [can be improved](./thumbnail-moodle-no-spacer.png) by removing the `<p class="c4l-spacer"></p>` element, but since that is inconsistent with the C4L plugin's output, I chose to keep it as is for now. Have a look at [this issue](https://github.com/reskit/moodle-tiny_c4l/issues/20) to track progress on this.)
+With that option applied, the rendered result would look like this:
+
+<img src="./thumbnail-moodle-no-spacer.png">
 
 ## Usage
 
