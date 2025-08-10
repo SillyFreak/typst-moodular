@@ -1,10 +1,9 @@
 #import "/src/lib.typ" as moodular: *
 
-#set page(height: auto, margin: 5mm, fill: none)
+#show: moodular.preview()
 
-// style thumbnail for light and dark theme
-#let theme = sys.inputs.at("theme", default: "light")
-#set text(white) if theme == "dark"
+#c4l.key-concept[#lorem(20)]
 
-#set text(22pt)
-#align(center)[_a thumbnail showing the package's output_]
+```py
+print("Hello, world!")  # this is an example
+```
