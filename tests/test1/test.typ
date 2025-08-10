@@ -1,6 +1,6 @@
 #import "/src/lib.typ" as moodular: c4l
 
-#show: moodular.setup()
+#show: moodular.preview()
 
 #quote(block: true)[
   asdf

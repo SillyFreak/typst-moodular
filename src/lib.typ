@@ -1,21 +1,23 @@
 #import "c4l.typ"
 
-/// Moodular's main Template function, to be called as a show rule:
+/// Moodular's main template function, to be called as a show rule:
 ///
 /// ```typ
-/// #show: setup()
+/// #show: setup(mode: "preview")  // or "export"
 /// ```
+///
+/// If you don't need flexibility of the `mode`, you can use @@preview() or @@export() instead.
 ///
 /// The function applies the following settings for PDF export:
 ///
-/// - sets the page height to `auto` so that all content appears on a single continuous page,
+/// - if `mode` is `"preview"`, sets the page height to `auto` so that all content appears on a single continuous page,
 ///   like on the web
 /// - sets a sans serif font (Noto Sans is currently hardcoded and therefore needs to be present)
 ///   and displays links blue and underlined
 /// - shows blockquotes with a gray left border
 /// - show raw blocks with a light beige background
 ///
-/// which is a best-effort recreation of Moodle's default style.
+/// which is a best-effort recreation of Moodle's Boost theme's default style.
 ///
 /// For HTML export, the following settings are applied:
 ///
@@ -28,14 +30,21 @@
 ///   The `PLUGINFILE` prefix is used internally by Moodle to indicate references to uploaded files.
 ///
 /// -> function
-#let setup() = body => {
+#let setup(
+  /// the mode to use for the document; either `preview` (simulate a non-paged run of HTML content)
+  /// or `export` (don't change the page setup, as to produce a paged PDF document).
+  /// -> string
+  mode: none,
+) = body => {
+  assert(mode in ("preview", "export"), message: "mode must be set to either 'preview' or 'export'")
+
   import "libs.typ": bullseye, bullseye.html
 
   import "htmlx.typ"
 
   // paged: setup page, font, link styling
   show: bullseye.show-target(paged: rest => {
-    set page(height: auto, margin: 1cm)
+    set page(height: auto, margin: 1cm) if mode == "preview"
     set text(font: "Noto Sans")
     show link: underline
     show link: set text(blue.darken(40%))
@@ -78,6 +87,18 @@
 
   body
 }
+
+/// Sets up the document for HTML preview, i.e. simulating a non-paged run of HTML content.
+/// This is a wrapper around @@setup(), see that function for details.
+///
+/// -> function
+#let preview() = setup(mode: "preview")
+
+/// Sets up the document for PDF export, i.e. producing a paged PDF document.
+/// This is a wrapper around @@setup(), see that function for details.
+///
+/// -> function
+#let export() = setup(mode: "export")
 
 /// Conditionally puts content into an `html.frame`, i.e. rendering it as an `<svg>` tag. When
 /// exporting to PDF, the content is simply displayed as-is.
