@@ -1,4 +1,4 @@
-#import "/src/lib.typ" as moodular: c4l, generico
+#import "/src/lib.typ" as moodular: c4l
 
 #show: moodular.setup()
 
@@ -105,12 +105,3 @@ public static void main(String[] args) {
 #c4l.card[C4L Card #lorem(50)]
 
 #lorem(50)
-
-#line(length: 100%)
-
-#generico.first-name
-
-#generico.tabs(
-  generico.tab("my tab")[hello],
-  generico.tab("my tab2")[world],
-)
