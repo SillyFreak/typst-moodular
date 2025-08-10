@@ -1,6 +1,5 @@
 #import "c4l.typ"
 #import "generico.typ"
-#import "htmlx.typ"
 
 /// Moodular's main Template function, to be called as a show rule:
 ///
@@ -32,6 +31,8 @@
 /// -> function
 #let setup() = body => {
   import "libs.typ": bullseye, bullseye.html
+
+  import "htmlx.typ"
 
   // paged: setup page, font, link styling
   show: bullseye.show-target(paged: rest => {
@@ -94,6 +95,8 @@
   body,
 ) = {
   import "libs.typ": bullseye, bullseye.html
+
+  import "htmlx.typ"
 
   context bullseye.on-target(
     paged: body,

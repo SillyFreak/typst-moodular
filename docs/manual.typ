@@ -50,9 +50,3 @@ This package is somewhat opinionated, as it contains features tailored towards s
     }
   )
 )
-
-#module(
-  read("/src/htmlx.typ"),
-  name: "htmlx",
-  label-prefix: "htmlx",
-)
